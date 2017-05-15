@@ -1,0 +1,88 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>{{datos.nombre}}</span>
+  </ion-nav-title>
+
+  <ion-content class="main-content">
+    <div class="professional-container">
+      <div class="cont-profesional-titlerow">
+          Selecciona un profesional
+      </div>
+      <div class="cont-profesional">
+        <div class="cont-hidden">
+          <ks-swiper-container initial-slide="3" loop="false" show-nav-buttons="false" slides-per-view="4" space-between="5" pagination-clickable="false">
+              <ks-swiper-slide class="swiper-slide prof-cards " id="prof-card-{{profesional.idUsuario}}" ng-repeat="profesional in profesionales" ng-click="selectProf( profesional.idUsuario )">
+                <div class="list card profesional">
+                  <div class="card-header background" style="background-image:url({{profesional.foto}})" ></div>
+                  <div class="padding">
+                    <h5 class="text-cut name-site">{{profesional.nombre}}</h5>
+                    <div>
+                      <span class="title-cat-card">{{profesional.titulo}}</span>
+                      <div class="rating">
+                        <ion-icon class="" ng-repeat="j in [1,2,3]">
+                          <i class="icon ion-ios-star"></i>
+                        </ion-icon>
+                        <ion-icon class="" ng-repeat="j in [4,5]">
+                          <i class="icon ion-ios-star-outline"></i>
+                        </ion-icon>
+                      </div>
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                </div>
+              </ks-swiper-slide>
+          </ks-swiper-container>
+        </div>
+      </div>
+    </div>
+    <div class="date-container">
+      <div class="cont-date-titlerow">
+          Selecciona una fecha
+      </div>
+      <div ng-if="idProfesional == null" class="prof-seleccion-mg-error">
+        Selecciona un profesional primero
+      </div>
+      <div ng-if="idProfesional != null">
+        <onezone-datepicker datepicker-object="onezoneDatepicker">
+          <button class="button button-block button-outline button-positive show-onezone-datepicker">
+            {{onezoneDatepicker.date | date:'dd MMMM yyyy'}}
+          </button>
+        </onezone-datepicker>
+        <div class="cont-card reservas-estb-card">
+          <div class="cont-hidden reservas-estb-cont-hidden">
+            <ion-pane>
+              <ion-slides show-pager="false" options="optionscard" id="hoursSlider" slider="data.sliderHours" >
+                  <ion-slide-page ng-repeat="hora in horas track by $index">
+                    <div class="hour-content hour-free" ng-click="seleccionarFecha( '{{hora}}' )" ng-if="usadas[$index] == 0">
+                      <div class="hour-content-txt">
+                        <div>Reservar</div>
+                        <div class="hour">{{hora}}</div>
+                      </div>
+                    </div>
+                    <div class="hour-content hour-selected" ng-click="seleccionarFecha( '{{hora}}' )" ng-if="usadas[$index] == 2">
+                      <div>Selección</div>
+                      <div class="hour">{{hora}}</div>
+                    </div>
+                    <div class="hour-content hour-blocked" ng-if="usadas[$index] == 1">
+                      <div>Reservado</div>
+                      <div class="hour">{{hora}}</div>
+                    </div>
+                  </ion-slide-page>
+              </ion-slides>
+            </ion-pane>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="notes-container">
+        <div class="cont-notes-titlerow">
+            Añade algo adicional que desees
+        </div>
+        <div class="notes-inner-wrapper">
+          <label for="notas">Escribe tus notas</label>
+          <textarea id="notas" rows="5" ng-model="$parent.notas" class="reserva-estb-nota"></textarea>
+        </div>
+      </div>
+      <button ng-click="reservar()" class="reserva-estb-reserva-btn">Reservar</button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,116 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Mi perfil</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="top-content row">
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" ng-src="{{archivos.foto}}" ng-model="imagenavatar" spinner-on-load>
+          </pre-img>
+        </div>
+     <!--carga imagen-->
+        <div>
+          <div>
+            <input type="file" name="file" uploader-model="archivos.foto" /> <br>
+
+          </div>
+        </div>
+    <!--fin carga imagen-->
+        <p class="span-alerta">{{errormsg.foto}}</p>
+
+        <div class="user-background-image-outer">
+          <div multi-bg="['img/bg-img-perfil.jpg']" ></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <ul class="list-menu">
+        <div class="item item-divider">
+          Perfil
+        </div>
+        <div class="item item-divider">Datos Basicos</div>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Nombre</span>
+          </div>
+          <input type="text" ng-model="datos.nombrelocal" required>
+        </label>
+        <label class="item item-input item-icon-left">
+          <p class="span-alerta" ng-if="errormsg.nombre != ''">{{errormsg.nombre}}</p>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Descripcion</span>
+          </div>
+          <div class="card">
+            <div class="item item-divider" >
+               <i class="icon ion-chatbubble"> </i>Descripcion del establecimiento
+            </div>
+            <textarea rows="4" cols="50" ng-model="datos.descripcionlocal"></textarea>
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Direccion</span>
+          </div>
+          <input type="text" ng-model="datos.direccionlocal" placeholder="Calle 134 # 11 - 11 " required>
+        </label>
+        <label class="item item-input item-icon-left">
+          <p class="span-alerta" ng-if="errormsg.direccion !=''">{{errormsg.direccion}}</p>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">TelÃ©fono</span>
+          </div>
+          <input type="tel" ng-model="datos.telefonolocal" placeholder="Numero TelÃ©fono" required>
+        </label>
+        <label class="item item-input item-icon-left">
+          <p class="span-alerta" ng-if="errormsg.telefono !=''">{{errormsg.telefono}}</p>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Celular</span>
+          </div>
+          <input type="tel" ng-model="datos.celularlocal" placeholder="Numero Celular" required >
+        </label>
+        <label class="item item-input item-icon-left">
+          <p class="span-alerta" ng-if="errormsg.celular !=''">{{errormsg.celular}}</p>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Correo</span>
+          </div>
+          <input type="email" ng-model="datos.correolocal" placeholder="usuari@lukgo.com" required>
+        </label>
+        <label class="item item-input item-icon-left">
+          <p class="span-alerta" ng-if="errormsg.correo !=''">{{errormsg.correo}}</p>
+        </label>
+      </ul>
+      <div class="mapWrap-establecimiento"  data-tap-disabled="true">
+        <map center="{{center_position.lat}},{{center_position.lng}}" zoom="11">
+        </map>
+        <div class="marcador-centro">
+            <img class="img-marcador" ng-src="img/marcador.jpg" ng-model="imagenavatar">
+        </div>
+        <div class="row center-map-action">
+          <div class="list">
+            <div class="item item-input-inset">
+              <a class="button button-icon icon ion-pinpoint" ng-click="centerOnMe()"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="save">
+        <button type="submit" class="button icon ion-edit" ng-click="crearestablecimiento()"> Guardar</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

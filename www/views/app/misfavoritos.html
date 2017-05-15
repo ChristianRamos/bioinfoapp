@@ -1,0 +1,34 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span></span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="favoritos-container">
+      <div class="favoritos-titulo">
+        <div class="favoritos-titulo-center" style="">
+          Mis sitios favoritos
+        </div>
+      </div>
+        <div ng-if="favoritos != false" class="favoritos-wrapper">
+          <div class="favorito" ng-repeat="favorito in favoritos track by $index" ng-click="goSite( favorito.idEstablecimiento )">
+            <div class="favoritos-row row display-block-inline">
+              <div class="favorito-left-wrapper pull-left">
+                <div class="favorito-foto-profesional" style="">
+                  <img src="{{favorito.foto}}" class="favorito-foto-prf-img"/>
+                </div>
+              </div>
+              <div class="favorito-right-wrapper pull-left">
+                <div class="favorito-profesional">{{favorito.nombre}}</div>
+              </div>
+              <div class="favorito-more-btn pull-right">
+                <i class="icon ion-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div ng-if="favoritos == false" class="favoritos-wrapper-error">
+          No se han encontrado sitios favoritos, añade uno
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

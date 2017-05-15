@@ -1,0 +1,51 @@
+<ion-view class="maps-view">
+  <ion-nav-title>
+    <span>Establecimientos</span>
+  </ion-nav-title>
+  <ion-content scroll="false">
+    <div class="mapWrap"  data-tap-disabled="true">
+      <div class="cont-card cont-card-estb-cerca">
+        <div class="cont-hidden">
+          <ion-pane>
+            <ion-slides show-pager="false" options="optionscard" slider="data.slider">
+              <ion-slide-page ng-repeat="sitio in sitios">
+                <div class="site-tag" ng-click="goSite( sitio.idEstablecimiento )">
+                  <div class="site-tag-wrapper">
+                    <div class="foto-site-tag">
+                      <img ng-if="sitio.foto != null" src="{{sitio.foto}}" />
+                    </div>
+                    <div class="content-site-tag" ng-click="goSite( sitio.idEstablecimiento )">
+                      <div class="site-tag-name">{{sitio.nombre}}</div>
+                      <div class="site-tag-address">{{sitio.direccion}}</div>
+                      <div class="site-tag-stars">
+                        <ion-icon class="" ng-repeat="j in sitio.stars">
+                          <i class="icon ion-ios-star"></i>
+                        </ion-icon>
+                        <ion-icon class="" ng-repeat="j in sitio.nostars">
+                          <i class="icon ion-ios-star-outline"></i>
+                        </ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ion-slide-page>
+            </ion-slides>
+          </ion-pane>
+        </div>
+      </div>
+      <div id="map"></div>
+      <!--<map center="{{center_position.lat}},{{center_position.lng}}" disableDefaultUI="true" zoom="11">
+      </map>-->
+      <div class="row center-map-action">
+        <div class="list">
+          <div class="item item-input-inset">
+            <a class="button button-icon icon ion-pinpoint" ng-click="centerOnMe()"></a>
+          </div>
+          <div class="item item-input-inset" >
+            <a class="button button-icon icon ion-plus-round" ng-click="openModal()"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

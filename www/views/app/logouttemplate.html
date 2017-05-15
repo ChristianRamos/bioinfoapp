@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class="login-header-bar">
+    <button class="button button-clear button-primary modal-close-btn" ng-click="closeModalLogOut()"><i class="icon ion-close"></i></button>
+    <h1 class="title">Cerrar Sesion</h1>
+  </ion-header-bar>
+  <ion-content class="modal-content-wrapper">
+    <form ng-cloak>
+
+
+        <div class="item item-body">
+          <p>
+            Estas seguro de que deseas cerrar la sesion.
+          </p>
+          <button class="button button-negative button-block" ng-click="cerrarSesion()">Aceptar</button>
+          <button class="button button-positive button-block" ng-click="closeModalLogOut()">Cancelar</button>
+        </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

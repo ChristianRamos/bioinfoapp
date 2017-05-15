@@ -1,0 +1,211 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Mi perfil</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="top-content row">
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" ng-src="{{datos.avatar}}" ng-model="imagenavatar" spinner-on-load>
+          </pre-img>
+        </div>
+        <div ng-if="edicion">
+          <form name="upload" ng-submit="editarperfil()">
+            <button type="submit" class="button icon ion-edit"> Editar</button>
+          </form>
+        </div>
+        <!--carga imagen-->
+        <div ng-if="edicion===false">
+          <div data-ng-controller="ProfileCtrl">
+          <form name="upload" ng-submit="uploadFile()">
+                <input type="file" name="file" uploader-model="file" /> <br>
+                <input type="submit" value="Guadar foto">
+            </form>
+        </div>
+        </div>
+        <!--fin carga imagen-->
+        <div ng-if="edicion===false" class="save">
+          <form name="upload" ng-submit="guardardatos()">
+            <button type="submit" class="button icon ion-edit"> Guardar</button>
+          </form>
+        </div>
+      </div>
+      <div class="user-background-image-outer" ng-controller="ProfileCtrl">
+        <div multi-bg="['img/bg-img-perfil.jpg']" ></div>
+      </div>
+    </div>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Mi perfil">
+          <div class="bottom-content">
+            <ul class="list-menu">
+              <div class="item item-divider" ng-if="tp">
+                Perfil
+              </div>
+              <div class="item item-divider">Datos Basicos</div>
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Nombre</span>
+                </div>
+                <input type="text" ng-model="datos.nombre" ng-disabled="edicion">
+              </label>
+              <!--
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Apellido</span>
+                </div>
+                <input type="text" ng-model="datos.apellido" ng-disabled="edicion">
+              </label>
+
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Fecha de nacimiento</span>
+                </div>
+                <div class="datepickerdemoBasicUsage">
+                  <div flex-gt-xs="" class="estilo-fecha">
+                     <md-datepicker ng-model="datos.fechana" md-placeholder="Fecha de nacimiento..." ng-disabled="edicion"></md-datepicker>
+                  </div>
+                </div>
+              </label>-->
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Genero</span>
+                </div>
+                <div ng-if="edicion">
+                  {{genero}}
+                </div>
+                <div ng-if="edicion===false">
+                  <select ng-model="datos.genero">
+                    <option value="{{genero}}">{{genero}}</option>
+                    <div ng-if="vgen.mas">
+                      <option value="Masculino">Masculino</option>
+                    </div>
+                    <div ng-if="vgen.fem">
+                      <option value="Femenino">Femenino</option>
+                    </div>
+                    <div >
+                      <option value="Otro">Otro</option>
+                    </div>
+                  </select>
+                </div>
+              </label>
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Correo</span>
+                </div>
+                <input type="email" ng-model="datos.correo" placeholder="usuari@lukgo.com" ng-disabled="edicion">
+              </label>
+              <label class="item item-input item-icon-left">
+                <div class="cont-label">
+                  <span class="input-label">Teléfono</span>
+                </div>
+                <input type="tel" ng-model="datos.telefono" placeholder="Numero Teléfono" ng-disabled="edicion">
+              </label>
+              <!--DATOS ADICIONALES PARA PROFESIONALES-->
+              <div ng-if="tp">
+                <div class="item item-divider"><i class="icon ion-ios-person"></i> Datos Profesionales</div>
+                 <label class="item item-input item-icon-left">
+                  <div class="cont-label">
+                    <span class="input-label">Direccion</span>
+                  </div>
+                  <input type="tel" ng-model="datos.datosp.direccion" placeholder="Direccion" ng-disabled="edicion">
+                </label>
+                 <label class="item item-input item-icon-left">
+                  <div class="cont-label">
+                    <span class="input-label">Cedula</span>
+                  </div>
+                  <input type="tel" ng-model="datos.datosp.cedula" placeholder="Numero Cedula" ng-disabled="edicion">
+                </label>
+              </div>
+               <!-- FIN DATOS ADICIONALES PARA PROFESIONALES-->
+            </ul>
+            <div class="card me" ng-if="edicion">
+              <div class="item item-divider" >
+                 SOBRE MI
+              </div>
+              <div class="item item-text-wrap">
+                {{datos.sobre}}
+              </div>
+            </div>
+            <div class="card" ng-if="edicion===false">
+            <div class="item item-divider" >
+               <i class="icon ion-chatbubble"> </i>Sobre Mi
+            </div>
+            <textarea rows="4" cols="50" ng-model="datos.sobre"></textarea>
+          </div>
+            <div ng-if="tpu">
+              <button  class="button button-large button-positive icon ion-scissors profesional" ng-click="showConfirmacionProfesional($event)"> </i> SOY PROFESIONAL</button>
+            </div>
+        </div>
+        </md-tab>
+        <md-tab label="Mis Establecimientos" ng-if="tp">
+          <div ng-if="tp">
+            <div  ng-if="edicion===false">
+              <form name="upload">
+                <button type="submit" class="button icon ion-edit" ui-sref="app.addsite"> Agregar establecimiento</button>
+              </form>
+            </div>
+            <ul class="list-menu">
+              <div class="item item-divider" ng-if="tp">
+                Mis Establecimientos
+              </div>
+              <!--establecimientos confirmados-->
+              <div class="item card-item cont-est" ng-repeat="establecimiento in establecimientosConf.resultado">
+                  <div  class="card stable-bg ink ink-dark" >
+                      <div class="item item-avatar item-text-wrap">
+                          <span class="img-list-est" style="background-image: url('{{establecimiento.foto}}');"></span>
+                          <div class="cont-info-est">
+                            <div class="name-est">
+                              <strong>{{establecimiento.nombre}}</strong>{{establecimiento.descripcion}}.
+                            </div>
+                            <div class="card-footer text-right">
+                                <div class="datos-est">
+                                  <p>{{establecimiento.direccion}}</p>
+                                </div>
+                                <div class="pull-left cont-text-confirmado">
+                                  <p>Confirmado</p>
+                                </div>
+                                <div class="pull-right cont-btn-edit-est">
+                                  <button  class="button icon ion-edit btn-edit-est" ng-Click="editarEstablecimiento('{{establecimiento.idEstablecimiento}}')">
+                                  </button>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!--fin establecimientos confirmados-->
+              <!--establecimientos por confirmar-->
+              <div class="item card-item cont-est" ng-repeat="establecimiento in establecimientos.resultado">
+                  <div  class="card stable-bg ink ink-dark" >
+                      <div class="item item-avatar item-text-wrap">
+                          <span class="img-list-est" style="background-image: url('{{establecimiento.foto}}');"></span>
+                          <div class="cont-info-est">
+                              <div class="name-est">
+                                <strong>{{establecimiento.nombre}}</strong>{{establecimiento.descripcion}}.
+                              </div>
+                              <div class="card-footer text-right">
+                                <div class="datos-est">
+                                  <p>{{establecimiento.direccion}}</p>
+                                </div>
+                                <div class="pull-left cont-text-no-confirmado">
+                                  <p>Por confirmar</p>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <!--fin establecimientos por confirmar-->
+            </ul>
+          </div>
+        </md-tab>
+      </md-tabs>
+  </ion-content>
+</ion-view>

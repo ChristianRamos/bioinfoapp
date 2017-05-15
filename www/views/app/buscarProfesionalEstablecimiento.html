@@ -1,0 +1,92 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Agregar profesional</span>
+  </ion-nav-title>
+  <ion-content>
+    <!--cuadro de busqueda-->
+    <div class="item item-input-inset" ng-controller="AddProfesionalEstablecimientoCtrl">
+      <p>Ingrese el numero de cedula del profesional</p>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Buscar profesional..." ng-model="busqueda">
+        </label>
+        <button class="button button-small" ng-click="ir()">
+          Buscar
+        </button>
+    </div>
+    <!--  fin cuadro de busqueda -->
+    <div ng-if="validacion.resultado">
+      <div class="top-content row">
+        <div class="profile-container">
+          <div class="user-image-container">
+            <pre-img ratio="_1_1" helper-class="rounded-image">
+              <img class="user-image" ng-src="{{datos.imagen}}" ng-model="imagenavatar" spinner-on-load>
+            </pre-img>
+          </div>
+
+          <div class="save">
+            <button type="submit" class="button icon ion-edit" ng-click="agregarProfesional()"> Agregar</button>
+
+          </div>
+        </div>
+        <div class="user-background-image-outer" ng-controller="AddProfesionalEstablecimientoCtrl">
+          <div multi-bg="['img/bg-img-perfil.jpg']" ></div>
+        </div>
+      </div>
+      <div class="bottom-content">
+        <ul class="list-menu">
+          <div class="item item-divider">
+            Perfil
+          </div>
+          <div class="item item-divider">Datos Basicos</div>
+          <label class="item item-input item-icon-left">
+            <div class="cont-label">
+              <span class="input-label">Nombre</span>
+            </div>
+            <input type="text" ng-model="datos.nombre" ng-disabled="edicion">
+          </label>
+          <label class="item item-input item-icon-left">
+            <div class="cont-label">
+              <span class="input-label">Correo</span>
+            </div>
+            <input type="email" ng-model="datos.correo" placeholder="usuari@lukgo.com" ng-disabled="edicion">
+          </label>
+          <label class="item item-input item-icon-left">
+            <div class="cont-label">
+              <span class="input-label">Teléfono</span>
+            </div>
+            <input type="tel" ng-model="datos.telefono" placeholder="Numero Teléfono" ng-disabled="edicion">
+          </label>
+          <!--DATOS ADICIONALES PARA PROFESIONALES-->
+          <div>
+            <div class="item item-divider"><i class="icon ion-ios-person"></i> Datos Profesionales</div>
+             <label class="item item-input item-icon-left">
+              <div class="cont-label">
+                <span class="input-label">Direccion</span>
+              </div>
+              <input type="tel" ng-model="datos.datosp.direccion" placeholder="Direccion" ng-disabled="edicion">
+            </label>
+
+          </div>
+           <!-- FIN DATOS ADICIONALES PARA PROFESIONALES-->
+        </ul>
+        <div class="card me">
+          <div class="item item-divider" >
+             SOBRE MI
+          </div>
+          <div class="item item-text-wrap">
+            {{datos.sobre}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="validacion.resultado===false">
+      <p>{{mensaje}}</p>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,77 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Agregar Establecimiento</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="top-content row">
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" ng-src="{{establecimiento.foto}}" ng-model="imagenavatar" spinner-on-load>
+          </pre-img>
+        </div>
+        <div class="user-background-image-outer" ng-controller="ProfileCtrl">
+          <div multi-bg="['img/bg-img-perfil.jpg']" ></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <ul class="list-menu">
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <p>{{establecimiento.nombre}}</p>
+          </div>
+        </label>
+        <div class="item item-divider">Completa los siguientes  campos</div>
+        <div class="item item-divider">para poder completar la solicitud</div>
+        <p>Informacion Requerida del  establecimiento</p>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Camara de Comercio</span>
+          </div>
+          <div class="carga-archivos">
+            <input type="file" class="inputfile" name="file" uploader-model="archivos.camaracomercio" /> <br>
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Rut del establecimiento</span>
+          </div>
+          <div class="carga-archivos">
+           <input type="file" class="inputfile" name="file" uploader-model="archivos.rut" /> <br>
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Confirmar numero de cedula (propietadio).</span>
+          </div>
+          <input type="text" ng-model="datos.cedula" class="user-name" placeholder="Agrega el numero de cedula...">
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Cedula de ciudadania</span>
+          </div>
+          <div class="carga-archivos">
+           <input type="file" class="inputfile" name="file" uploader-model="archivos.cedula" /> <br>
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Direccion.</span>
+          </div>
+          <input type="text" ng-model="datos.direccion" class="user-name" placeholder="Agrega la direccion...">
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Telefono.</span>
+          </div>
+          <input type="text" ng-model="datos.telefono" class="user-name" placeholder="Agrega el numero de telefono..."> <br>
+        </label>
+        <!-- FIN DATOS ADICIONALES PARA PROFESIONALES-->
+      </ul>
+      <div class="cont-button-save">
+        <button class="button-save" ng-click="guardardatosEstablecimiento()">Guardar</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

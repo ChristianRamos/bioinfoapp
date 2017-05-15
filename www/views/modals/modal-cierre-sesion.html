@@ -1,0 +1,22 @@
+<md-dialog>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Cerrar Sesion</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="item item-body">
+        <p>
+          Estas seguro de que deseas cerrar la sesion.
+        </p>
+        <button class="button button-negative button-block" ng-click="cerrarSesion()">Aceptar</button>
+        <button class="button button-positive button-block" ng-click="cancel()">Cancelar</button>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

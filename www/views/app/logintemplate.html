@@ -1,0 +1,41 @@
+<ion-modal-view>
+  <ion-header-bar class="login-header-bar">
+    <button class="button button-clear button-primary modal-close-btn" ng-click="closeModalLogin()"><i class="icon ion-close"></i></button>
+    <h1 class="title">Inicia Sesion</h1>
+  </ion-header-bar>
+  <ion-content class="modal-content-wrapper">
+    <div class="login-form-wrapper">
+      <div class="login-form-container">
+        <div ng-if="loginError">
+          Se ha presentado un error, por favor verifica tus datos
+        </div>
+        <form>
+          <input type="email" class="modal-input modal-login-email" placeholder="Correo Electrónico" name="user_email" ng-model="user.email" required>
+          <input type="password" class="modal-input modal-login-passwrd" placeholder="Contraseña" name="user_password" ng-model="user.password" required >
+          <input type="checkbox" class="modal-input modal-login-checkbox" name="user_professional" ng-model="user.tipoperfil" value="1">
+            <label for="user_professional">
+              ¿Eres un profesional?
+            </label>
+          </input>
+          <button type="submit" class="button button-positive button-block modal-btn-iniciar-sess" ng-click="doLogIn()" ng-disabled="(selected_tab=='Email') ? (login_form.user_email.$invalid || login_form.user_password.$invalid) : ((selected_tab=='Phone') ? (login_form.user_phone.$invalid || login_form.user_pin.$invalid) : false)">
+            Iniciar sesion
+          </button>
+        </form>
+        <button ng-click="LoginwithFacebook('1')" class="modal-snet-login-btns modal-facebook-login-btn">
+          <i class="icon ion-social-facebook"></i>
+          Entrar con Facebook
+        </button>
+        <button ng-click="LoginwithGoogle('1')" class="modal-snet-login-btns modal-google-login-btn">
+          <i class="icon ion-social-googleplus" style="color: white;"></i>
+          Entrar con G+
+        </button>
+        <a class="forgot-password button button-small button-clear button-light modal-lower-link" ng-click="registrarme()">
+          ¿No tienes cuenta?, Registrate
+        </a>
+        <a class="forgot-password button button-small button-clear button-light modal-lower-link" ui-sref="app.recuperarContrasena" ng-click="cancel()">
+          ¿Olvidaste tu contraseña?
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,45 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Buscar Planta</span>
+  </ion-nav-title>
+  <ion-content>
+    <!--cuadro de busqueda-->
+    <div class="item item-input-inset" ng-controller="buscarEspecimenCtrl">
+      <p>Ingrese el nombre de la planta que deseas buscar</p>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Buscar profesional..." ng-model="parametro.busqueda">
+        </label>
+        <button class="button button-small" ng-click="ir()">
+          Buscar
+        </button>
+    </div>
+    <!--  fin cuadro de busqueda -->
+    <!--area de resultados-->
+    <div class="item card-item" ng-repeat="resultado in resultado.datos">
+        <div  class="card stable-bg ink ink-dark" >
+            <div class="item item-avatar item-text-wrap">
+                <span class="avatar" style="background-image: url('{{resultado.imagen}}');"></span>
+                <strong>{{resultado.nombre}}</strong>.</br>
+                {{resultado.descripcion}}...
+                <div class="card-footer text-right">
+                    <div class="pull-left">
+                      <button class="button button-small" ng-click="">
+                        Ver
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fin area de resultados-->
+    <div ng-if="validacion.resultado===false">
+      <p>{{mensaje}}</p>
+    </div>
+  </ion-content>
+</ion-view>

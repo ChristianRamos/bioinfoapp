@@ -1,0 +1,140 @@
+<ion-modal-view>
+  <ion-header-bar class="header-bar-revr-especifica">
+    <h1 class="title">Tu reserva</h1>
+    <button class="button button-clear button-primary cancel-btn-especifica" ng-click="closeModal()"><i class="icon ion-close"></i></button>
+  </ion-header-bar>
+  <ion-content>
+    <div class="reserva-esp-wrapper" ng-if="mod.tipo == 1">
+      <div class="reserva-esp-container">
+        <div class="reserva-esp-title-row">
+          <div class="reserva-esp-title-wrapper">
+            <div ng-if="tipoUsuario == 1" class="reserva-esp-foto-profesional">
+              <img src="{{reservas[mod.index].ProfesionalFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div ng-if="tipoUsuario == 2"  class="reserva-esp-foto-profesional">
+              <img src="{{reservas[mod.index].ClienteFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div class="reservas-esp-prof-title">
+              <div ng-if="tipoUsuario == 1" class="reservas-esp-prof-name">{{reservas[mod.index].ProfesionalNombre}}</div>
+              <div ng-if="tipoUsuario == 2" class="reservas-esp-prof-name">{{reservas[mod.index].ClienteNombre}}</div>
+              <div class="reservas-esp-prof-serv">{{reservas[mod.index].ServicioTitulo}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="reserva-esp-content">
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Fecha:
+            </div>
+            <div class="reserva-esp-fecha">{{reservas[mod.index].fecha}}</div>
+          </div>
+
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Hora:
+            </div>
+            <div class="reserva-esp-hora">{{reservas[mod.index].hora}}</div>
+          </div>
+
+          <div class="reserva-esp-notas-row">
+            <div class="reserva-esp-notas-title">
+              Notas
+            </div>
+            <div class="reserva-esp-notas">{{reservas[mod.index].notas}}</div>
+          </div>
+          <button ng-show="cancela == null" ng-click="cancela = 1" class="reserva-esp-btns-cancel btn-cancel-cancel">Cancelar reserva</button>
+          <div ng-show="cancela == 1" class="confirma-cancela-btns">
+            <div class="confirma-cancela-txt">¿Estás seguro que deseas cancelar esta reserva?</div>
+            <button ng-click="cancelarReserva()" class="reserva-esp-btns-cancel btn-cancel-confirm">Si, cancelar</button>
+            <button ng-click="cancela = null" class="reserva-esp-btns-cancel btn-cancel-decline">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reserva-esp-wrapper" ng-if="mod.tipo == 2">
+      <div class="reserva-esp-container">
+        <div class="reserva-esp-title-row">
+          <div class="reserva-esp-title-wrapper">
+            <div ng-if="tipoUsuario == 1" class="reserva-esp-foto-profesional">
+              <img src="{{pasadas[mod.index].ProfesionalFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div ng-if="tipoUsuario == 2"  class="reserva-esp-foto-profesional">
+              <img src="{{pasadas[mod.index].ClienteFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div class="reservas-esp-prof-title">
+              <div ng-if="tipoUsuario == 1" class="reservas-esp-prof-name">{{pasadas[mod.index].ProfesionalNombre}}</div>
+              <div ng-if="tipoUsuario == 2" class="reservas-esp-prof-name">{{pasadas[mod.index].ClienteNombre}}</div>
+              <div class="reservas-esp-prof-serv">{{pasadas[mod.index].ServicioTitulo}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="reserva-esp-content">
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Fecha:
+            </div>
+            <div class="reserva-esp-fecha">{{pasadas[mod.index].fecha}}</div>
+          </div>
+
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Hora:
+            </div>
+            <div class="reserva-esp-hora">{{pasadas[mod.index].hora}}</div>
+          </div>
+
+          <div class="reserva-esp-notas-row">
+            <div class="reserva-esp-notas-title">
+              Notas
+            </div>
+            <div class="reserva-esp-notas">{{pasadas[mod.index].notas}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="reserva-esp-wrapper" ng-if="mod.tipo == 3">
+      <div class="reserva-esp-container">
+        <div class="reserva-esp-title-row">
+          <div class="reserva-esp-title-wrapper">
+            <div ng-if="tipoUsuario == 1" class="reserva-esp-foto-profesional">
+              <img src="{{canceladas[mod.index].ProfesionalFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div ng-if="tipoUsuario == 2"  class="reserva-esp-foto-profesional">
+              <img src="{{canceladas[mod.index].ClienteFoto}}" class="reserva-esp-prs-photo"/>
+            </div>
+            <div class="reservas-esp-prof-title">
+              <div ng-if="tipoUsuario == 1" class="reservas-esp-prof-name">{{canceladas[mod.index].ProfesionalNombre}}</div>
+              <div ng-if="tipoUsuario == 2" class="reservas-esp-prof-name">{{canceladas[mod.index].ClienteNombre}}</div>
+              <div class="reservas-esp-prof-serv">{{canceladas[mod.index].ServicioTitulo}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="reserva-esp-content">
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Fecha:
+            </div>
+            <div class="reserva-esp-fecha">{{canceladas[mod.index].fecha}}</div>
+          </div>
+
+          <div class="reserva-esp-content-row">
+            <div class="reserva-esp-content-lft-title">
+              Hora:
+            </div>
+            <div class="reserva-esp-hora">{{canceladas[mod.index].hora}}</div>
+          </div>
+
+          <div class="reserva-esp-notas-row">
+            <div class="reserva-esp-notas-title">
+              Notas
+            </div>
+            <div class="reserva-esp-notas">{{canceladas[mod.index].notas}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

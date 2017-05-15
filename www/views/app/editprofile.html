@@ -1,0 +1,67 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Editar mi perfil</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="top-content row">
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" ng-src="{{mostrar.imagen}}" spinner-on-load>
+          </pre-img>
+        </div>
+         <div data-ng-controller="EditProfileCtrl">
+          <form name="upload" ng-submit="uploadFile()">
+                <input type="file" name="file" uploader-model="file" /> <br>
+                <input type="submit" value="Guadar foto"> 
+            </form>
+        </div>
+           
+        <div class="user-name">{{mostrar.nombreUsuario}}</div>
+        <div class="user-name">{{mostrar.apellido}}</div>
+        <!--<input type="file" name="fotoperfil" uploader-model="file" accept="image/png, .jpeg, .jpg, image/gif">-->
+      </div>
+      <div class="user-background-image-outer">
+        <div multi-bg="[image]"></div>
+          <!-- <div multi-bg="['https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg']"></div> -->
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="user-name">
+        <p>Informacion Personal</p>
+        <div class="cont-inf-pers">
+          <p>Nombre: </p>
+          <input type="text" ng-model="mostrar.nombreUsuario" class="user-name" placeholder="Agrega tu nombre...">
+          <p>Apellido: </p>
+          <input type="text" ng-model="mostrar.apellidoUsuario" class="user-name" placeholder="Agrega tu apellido...">
+          <div class="datepickerdemoBasicUsage">
+            <div flex-gt-xs="">
+              <p>Fecha Nacimiento: </p>
+               <md-datepicker ng-model="mostrar.fecha" md-placeholder="Agrega tu fecha de nacimiento..."></md-datepicker>
+             
+            </div>
+          </div>
+           <p>Genero: {{datos.genero}}</p>
+          <form name="genero">
+                <input type="radio" ng-model="mostrar.prueba" value="Masculino" name="genero" ng-checked="mostrar.mas">Masculino <br>
+                <input type="radio" ng-model="mostrar.prueba" value="Femenino" name="genero" ng-checked="mostrar.fem"> Femenino <br>
+          </form>
+        </div>
+        <p>Informacion de contacto</p>
+        <div class="cont-info-contac"> 
+          <p>Correo: </p>
+          <input type="text" ng-model="mostrar.correoUsuario" class="user-name" placeholder="Agrega tu Correo...">
+          <p>Telefono: </p>
+          <input type="text" ng-model="mostrar.telefonoUsuario" class="user-name" placeholder="Agrega tu numero de telefono...">
+        </div>
+      </div>
+      <div class="user-bio">
+        <p>Sobre mi: </p>
+        <textarea rows="4" cols="50" ng-model="mostrar.inf_user"></textarea>
+      </div>
+    </div>
+    <form name="upload" ng-submit="Guardarperfil()">
+      <input type="submit" value="Guardar">
+    </form>
+  </ion-content>
+</ion-view>

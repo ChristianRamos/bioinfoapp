@@ -1,0 +1,65 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Confirmacion de datos</span>
+  </ion-nav-title>
+  <ion-content>
+
+    <div class="bottom-content">
+      <ul class="list-menu">
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <p>{{establecimiento.nombre}}</p>
+          </div>
+        </label>
+        <div class="item item-divider">Completa los siguientes  campos</div>
+        <div class="item item-divider">para poder completar la solicitud</div>
+        <p>Informacion Requerida</p>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Agrega una direccion</span>
+          </div>
+          <div class="carga-archivos">
+            <input type="text" ng-model="datos.direccion" class="user-name" placeholder="Agrega una direccion ...">
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Numero de cedula</span>
+          </div>
+          <div class="carga-archivos">
+            <input type="text" ng-model="datos.cedula" class="user-name" placeholder="Agrega tu numero de cedula ...">
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Agrega una imagen de tu cedula</span>
+          </div>
+          <div class="carga-archivos">
+           <input type="file" class="inputfile" name="file" uploader-model="archivos.cedula" /> <br>
+          </div>
+        </label>
+        <label class="item item-input item-icon-left">
+          <p>Informacion de Profesional</p>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Agrega una imagen de tu RUT o Camara de Comercio</span>
+          </div>
+          <input type="file" class="inputfile" name="file" uploader-model="archivos.rutCdC" /> <br>
+        </label>
+        <label class="item item-input item-icon-left">
+          <div class="cont-label">
+            <span class="input-label">Agrega una imagen de tus antecedentes disciplinarios</span>
+          </div>
+          <div class="carga-archivos">
+            <input type="file" name="file" class="inputfile" uploader-model="archivos.antecedentes" /> <br>
+          </div>
+        </label>
+        <!-- FIN DATOS ADICIONALES PARA PROFESIONALES-->
+      </ul>
+      <div class="cont-button-save">
+         <button class="button-save"ng-click="guardardatosProfesional()">Guardar</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

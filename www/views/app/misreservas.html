@@ -1,0 +1,128 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>{{datos.nombre}}</span>
+  </ion-nav-title>
+
+  <ion-content class="main-content-reservas">
+    <div ng-show="saved" class="saved-reserve-msg">
+      <div class="saved-reserve-msg-center">
+        La reserva se ha realizado éxitosamente
+      </div>
+    </div>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom md-center-tabs>
+        <md-tab label="Por venir">
+          <div class="reservas-por-venir">
+            <div class="reservas-titulo">
+              <div class="reservas-titulo-center">
+                Reservas por venir
+              </div>
+            </div>
+            <div ng-if="reservas != false" class="reservas-wrapper">
+              <div class="reserva" ng-repeat="reserva in reservas track by $index">
+                <div class="reservas-row row display-block-inline" style="">
+                    <div class="reserva-left-wrapper pull-left">
+                      <div ng-if="tipoUsuario == 2" class="reserva-foto-profesional">
+                        <img src="{{reserva.ClienteFoto}}" class="reserva-prs-photo"/>
+                      </div>
+                      <div ng-if="tipoUsuario == 1" class="reserva-foto-profesional">
+                        <img src="{{reserva.ProfesionalFoto}}" class="reserva-prs-photo"/>
+                      </div>
+                    </div>
+                    <div class="reserva-right-wrapper pull-left">
+                      <div class="reserva-fecha">{{reserva.fecha}} a las {{reserva.hora}}</div>
+                      <div ng-if="tipoUsuario == 2" class="reserva-profesional">{{reserva.ClienteNombre}}</div>
+                      <div ng-if="tipoUsuario == 1" class="reserva-profesional">{{reserva.ProfesionalNombre}}</div>
+                      <div class="reserva-servicio">{{reserva.ServicioTitulo}}</div>
+                    </div>
+                    <div class="reserva-more-btn pull-right" ng-click="openModal( 1, $index )">
+                      <i class="icon ion-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="reserva-clr-lower-bar reserva-clr-lower-bar-reserva"></div>
+              </div>
+              <button ng-click="cargarMas(1)" class="reservas-btn-mas"> Ver más </button>
+            </div>
+            <div ng-if="reservas == false" class="reservas-wrapper-error">
+                No se han encontrado reservas recientes
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="Pasadas">
+          <div class="reservas-pasadas">
+            <div class="reservas-titulo">
+              <div class="reservas-titulo-center">
+                Reservas pasadas
+              </div>
+            </div>
+              <div ng-if="pasadas != false" class="reservas-wrapper">
+                <div class="reserva" ng-repeat="pasada in pasadas track by $index">
+                  <div class="reservas-row row display-block-inline">
+                    <div class="reserva-left-wrapper pull-left">
+                      <div ng-if="tipoUsuario == 2" class="reserva-foto-profesional">
+                        <img src="{{pasada.ClienteFoto}}" class="reserva-prs-photo"/>
+                      </div>
+                      <div ng-if="tipoUsuario == 1" class="reserva-foto-profesional">
+                        <img src="{{pasada.ProfesionalFoto}}" class="reserva-prs-photo"/>
+                      </div>
+                    </div>
+                    <div class="reserva-right-wrapper pull-left">
+                      <div class="reserva-fecha">{{pasada.fecha}} a las {{pasada.hora}}</div>
+                      <div ng-if="tipoUsuario == 1" class="reserva-profesional">{{pasada.ProfesionalNombre}}</div>
+                      <div ng-if="tipoUsuario == 2" class="reserva-profesional">{{pasada.ClienteNombre}}</div>
+                      <div class="reserva-servicio">{{pasada.ServicioTitulo}}</div>
+                    </div>
+                    <div class="reserva-more-btn pull-right" ng-click="openModal( 2, $index )">
+                      <i class="icon ion-chevron-right"></i>
+                    </div>
+                  </div>
+                  <div class="reserva-clr-lower-bar reserva-clr-lower-bar-pasada"></div>
+                </div>
+              <button ng-click="cargarMas(2)" class="reservas-btn-mas"> Ver más </button>
+            </div>
+            <div ng-if="pasadas == false" class="reservas-wrapper-error">
+                No se han encontrado reservas recientes
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="Canceladas">
+          <div class="reservas-canceladas">
+            <div class="reservas-titulo">
+              <div class="reservas-titulo-center">
+                Reservas canceladas
+              </div>
+            </div>
+            <div ng-if="canceladas != false" class="reservas-wrapper">
+              <div class="reserva" ng-repeat="cancelada in canceladas">
+                <div class="reservas-row row display-block-inline">
+                  <div class="reserva-left-wrapper pull-left">
+                    <div ng-if="tipoUsuario == 2" class="reserva-foto-profesional">
+                      <img src="{{cancelada.ClienteFoto}}" class="reserva-prs-photo"/>
+                    </div>
+                    <div ng-if="tipoUsuario == 1" class="reserva-foto-profesional">
+                      <img src="{{cancelada.ProfesionalFoto}}" class="reserva-prs-photo"/>
+                    </div>
+                  </div>
+                  <div class="reserva-right-wrapper pull-left">
+                    <div class="reserva-fecha">{{cancelada.fecha}} a las {{cancelada.hora}}</div>
+                    <div ng-if="tipoUsuario == 1" class="reserva-profesional">{{cancelada.ProfesionalNombre}}</div>
+                    <div ng-if="tipoUsuario == 2" class="reserva-profesional">{{cancelada.ClienteNombre}}</div>
+                    <div class="reserva-servicio">{{cancelada.ServicioTitulo}}</div>
+                  </div>
+                  <div class="reserva-more-btn pull-right" ng-click="openModal( 3, $index )">
+                    <i class="icon ion-chevron-right"></i>
+                  </div>
+                </div>
+                <div class="reserva-clr-lower-bar reserva-clr-lower-bar-cancelada"></div>
+              </div>
+              <button ng-click="cargarMas(3)" class="reservas-btn-mas"> Ver más </button>
+            </div>
+            <div ng-if="canceladas == false" class="reservas-wrapper-error">
+                No se han encontrado reservas recientes
+            </div>
+          </div>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </ion-content>
+</ion-view>

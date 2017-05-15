@@ -1,0 +1,52 @@
+<ion-view view-title="Buscar establecimiento">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+        <!--cuadro de busqueda-->
+        <div class="item item-input-inset" ng-controller="AddSiteprfCtrl">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="Buscar establecimiento..." ng-model="busqueda">
+            </label>
+            <button class="button button-small" ng-click="ir()">
+              Buscar
+            </button>
+        </div>
+        <!--  fin cuadro de busqueda -->
+        <!--En caso de no haber resultados de busqueda-->
+        <div class="item card-item">
+          <ul class="list-menu">
+            <div class="item item-divider" ng-if="tp">
+              Perfil
+            </div>
+            <div class="item item-divider">{{agregar.mensaje}}</div>
+            <label class="item item-input item-icon-left">
+              <div class="cont-label">
+                <div class="pull-left">
+                  <button class="button button-small" ui-sref="app.nuevoEstablecimiento">
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </label>
+          </ul>
+        </div>
+        <!--fin de no haber resultados de busqueda-->
+        <!-- lista de resultados de establecimientos-->
+        <div class="item card-item" ng-repeat="establecimiento in establecimientos">
+            <div  class="card stable-bg ink ink-dark" >
+                <div class="item item-avatar item-text-wrap">
+                    <span class="avatar" style="background-image: url('{{establecimiento.foto}}');"></span>
+                    <strong>{{establecimiento.nombre}}</strong>{{establecimiento.descripcion}}.
+                    <div class="card-footer text-right">
+                        <p>{{establecimiento.direccion}}</p>
+                        <div class="pull-left">
+                          <button class="button button-small" ng-click="agregar('{{establecimiento.idEstablecimiento}}')">
+                            Agregar
+                          </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de la lista de resultados de establecimientos-->
+
+    </ion-content>
+</ion-view>

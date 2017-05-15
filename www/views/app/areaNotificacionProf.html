@@ -1,0 +1,43 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Notificaciones</span>
+  </ion-nav-title>
+
+  <ion-content class="main-content" style="top: 50px">
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom md-center-tabs>
+        <md-tab label="Servicios">
+        </md-tab>
+        <md-tab label="establecimientos" ng-if="respuesta.respuesta=='true'">
+          <div class="cont-notificaciones">
+            <div class="notificacion" ng-repeat="notificacion in respuesta.solcitudes">
+              <div  class="card stable-bg ink ink-dark" >
+                  <div class="item item-avatar item-text-wrap">
+                      <span class="img-notificacion" style="background-image: url('{{notificacion.datosEstablecimiento.foto}}');"></span>
+                      <div class="txt-notificacion">
+                          <p><strong>{{notificacion.datosPropietario.nombre}}</strong>, propietario del centro estetico {{notificacion.datosEstablecimiento.nombre}}, te ha agregado como profesional en su establecimiento.</p>
+                      </div>
+                  </div>
+                  <div class="cont-bton-acciones-notificaciones">
+                    <div ng-if="mensajeConf.vis=='false'">
+                      <div class="btn-conf-notificaciones">
+                        <button  class="button icon ion-android-checkmark-circle btn-edit-est" ng-Click="confirmarSolicitudEstablecimientoProfesional('{{notificacion.idSolicitud}}','conf')"></button>
+                      </div>
+                      <div class="btn-dlt-notificaciones">
+                        <button  class="button icon ion-android-close btn-edit-est" ng-Click=""></button>
+                      </div>
+                    </div>
+                    <div ng-if="mensajeConf.vis=='true'">
+                      <div class="txt-notificacion">
+                          <p>{{mensajeConf.mensaje}}.</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </ion-content>
+</ion-view>

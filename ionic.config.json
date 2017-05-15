@@ -1,5 +1,5 @@
 {
-  "name": "bioInfAPP",
+  "name": "app",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic1"
 }

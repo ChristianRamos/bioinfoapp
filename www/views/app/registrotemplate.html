@@ -1,0 +1,24 @@
+<ion-modal-view>
+  <ion-header-bar class="login-header-bar">
+    <button class="button button-clear button-primary modal-close-btn" ng-click="closeModalRegistro()"><i class="icon ion-close"></i></button>
+    <h1 class="title">Regístrate</h1>
+  </ion-header-bar>
+  <ion-content class="modal-content-wrapper">
+    <div class="login-form-wrapper">
+      <div class="login-form-container">
+        <div ng-if="RegistroCorreoExistente">
+          Ya existe esta cuenta de correo registrada
+        </div>
+        <form>
+          <input type="name" class="modal-input modal-registro-nombre" placeholder="Nombres" name="fname" ng-model="user.nombre" required>
+          <input type="name" class="modal-input modal-registro-apellido" placeholder="Apellidos" name="lname" ng-model="user.apellidos" required>
+          <input type="email" class="modal-input modal-registro-correo" placeholder="Correo Electrónico" name="user_email" ng-model="user.email" required>
+          <input type="password" class="modal-input modal-registro-passwrd" placeholder="Contraseña" name="user_password" ng-model="user.password" required >
+          <button type="submit" class="button button-positive button-block modal-btn-iniciar-sess" ng-click="doSignUp('1')" ng-disabled="(selected_tab=='Email') ? (login_form.user_email.$invalid || login_form.user_password.$invalid) : ((selected_tab=='Phone') ? (login_form.user_phone.$invalid || login_form.user_pin.$invalid) : false)">
+            Registrarme
+          </button>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

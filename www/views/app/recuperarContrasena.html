@@ -1,0 +1,35 @@
+<ion-view class="forgot-password-view auth-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-center">
+        <div class="card forgot-password-container">
+          <form name="forgot_password_form" class="" novalidate>
+            <div>
+              <div class="item item-body">
+                <label class="item item-input">
+                  <p>Por favor, ingresa tu correo electronico</p>
+                </label>
+                <label class="item item-input">
+                  <p>¿Eres profesional?</p>
+                    <input type="hidden" ng-model="user.tipo">
+                    <p>si</p>
+                    <input type="checkbox" ng-model="user.cbProfesional" value="2">
+
+                </label>
+                <label class="item item-input">
+                  <input type="email" placeholder="Email" name="user_email" ng-model="user.email" required>
+                </label>
+              </div>
+              <div class="item item-body bottom-content">
+                <button type="submit" class="button button-positive button-block" ng-click="recordarContrasena()" ng-disabled="forgot_password_form.$invalid">
+                  Recover it
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

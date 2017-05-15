@@ -1,0 +1,74 @@
+<ion-view class="login-view auth-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-center">
+        <div class="card login-container" content-tabs tabsdata='tabsdata'>
+          <my-tabs>
+            <my-tab title="Usuario">
+              <div class="list">
+                <div class="item item-body">
+                  <p>
+                      Inicia sesion con tus redes sociales.
+                  </p>
+                  <button class="button button-positive button-block" ng-click="LoginwithFacebook('usr')">Facebook</button>
+                  <button class="button button-positive button-block" ng-click="LoginwithGoogle('usr')">Google</button>
+                </div>
+                <form name="login_form" class="" novalidate ng-cloak>
+                  <div class="item item-body">
+                    <p>
+                        O con tu cuenta de correo.
+                    </p>
+                    <label class="item item-input">
+                      <input type="email" placeholder="Email" name="user_email" ng-model="user.email" required>
+                    </label>
+                    <label class="item item-input" show-hide-container>
+                      <input type="password" placeholder="Password" name="user_password" ng-model="user.password" required show-hide-input>
+                    </label>
+                  </div>
+                  
+                </form>
+              </div>
+            </my-tab>
+            <my-tab title="Profesional">
+              <div class="list">
+              <div class="item item-body">
+                <p>
+                    Inicia sesion con tus redes sociales.
+                </p>
+                <button class="button button-positive button-block" ng-click="LoginwithFacebook('prf')">Facebook</button>
+                <button class="button button-positive button-block" ng-click="LoginwithGoogle('prf')">Google</button>
+              </div>
+              <form name="login_form" class="" novalidate ng-cloak>
+                <div class="item item-body">
+                  <p>
+                      O con tu cuenta de correo.
+                  </p>
+                  <label class="item item-input">
+                    <input type="email" placeholder="Email" name="user_email" ng-model="user.email" required>
+                  </label>
+                  <label class="item item-input" show-hide-container>
+                    <input type="password" placeholder="Password" name="user_password" ng-model="user.password" required show-hide-input>
+                  </label>
+                </div>
+              </form>
+              </div>
+            </my-tab>
+          </my-tabs>
+          <div class="item item-body bottom-content">
+            <button type="submit" class="button button-positive button-block" ng-click="doLogIn()" ng-disabled="(selected_tab=='Email') ? (login_form.user_email.$invalid || login_form.user_password.$invalid) : ((selected_tab=='Phone') ? (login_form.user_phone.$invalid || login_form.user_pin.$invalid) : false)">
+              Log In
+            </button>
+          </div>
+        </div>
+        <div class="alternative-actions">
+          <a class="forgot-password button button-small button-clear button-light" ui-sref="auth.forgot-password">
+            Forgot Password?
+          </a>
+          <a class="sign-up button button-small button-clear button-light" ui-sref="auth.signup">
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

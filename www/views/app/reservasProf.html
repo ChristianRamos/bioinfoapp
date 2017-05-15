@@ -1,0 +1,53 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>{{datos.nombre}}</span>
+  </ion-nav-title>
+
+  <ion-content class="main-content">
+    <div class="date-container">
+      <div class="cont-date-titlerow">
+          Selecciona una fecha
+      </div>
+      <onezone-datepicker datepicker-object="onezoneDatepicker">
+        <button class="button button-block button-outline button-positive show-onezone-datepicker">
+          {{onezoneDatepicker.date | date:'dd MMMM yyyy'}}
+        </button>
+      </onezone-datepicker>
+      <div class="cont-card reservas-estb-card">
+        <div class="cont-hidden reservas-estb-cont-hidden">
+          <ion-pane>
+            <ion-slides show-pager="false" options="optionscard" slider="data.slider">
+                <ion-slide-page ng-repeat="hora in horas track by $index">
+                  <div class="hour-content hour-free" ng-click="seleccionarFecha( '{{hora}}' )" ng-if="usadas[$index] == 0">
+                    <div class="hour-content-txt">
+                      <div>Reservar</div>
+                      <div class="hour">{{hora}}</div>
+                    </div>
+                  </div>
+                  <div class="hour-content hour-selected" ng-click="seleccionarFecha( '{{hora}}' )" ng-if="usadas[$index] == 2">
+                    <div>Selección</div>
+                    <div class="hour">{{hora}}</div>
+                  </div>
+                  <div class="hour-content hour-blocked" ng-if="usadas[$index] == 1">
+                    <div>Reservado</div>
+                    <div class="hour">{{hora}}</div>
+                  </div>
+                </ion-slide-page>
+            </ion-slides>
+          </ion-pane>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes-container">
+      <div class="cont-notes-titlerow">
+          Añade algo adicional que desees
+      </div>
+      <div class="notes-inner-wrapper">
+        <label for="notas">Escribe tus notas</label>
+        <textarea id="notas" rows="5" ng-model="$parent.notas" class="reserva-estb-nota"></textarea>
+      </div>
+    </div>
+    <button ng-click="reservar()" class="reserva-estb-reserva-btn">Reservar</button>
+  </ion-content>
+</ion-view>

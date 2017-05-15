@@ -1,0 +1,144 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span></span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="width: 100%" style="border-bottom: 1px solid #ddd; position: relative; height: 48vh;">
+      <div style="width: 100%; height: 48vh; overflow: hidden;" >
+        <img ng-src="{{datos.foto}}" ng-model="imagenavatar" style="width: 100%;" />
+      </div>
+      <div style="width: 100%; height: 70px; position: relative; top: -18vh;">
+          <div style="width: 100%; height: 50px; background-color: rgba(1,1,1,0.7); color: white; padding: 15px;">
+            {{datos.nombre}}
+          </div>
+          <div class="" style="display: block; font-size: 27px; background-color: #4c4643; margin-top: 3px; padding-left: 15px; padding-bottom: 3px;">
+            <i class="icon star_value ion-ios-star-outline" ng-repeat="j in [0,1,2,3,4]" style="color: rgb(190, 194, 52);"></i>
+          </div>
+      </div>
+    </div>
+    <div class="bottom-content">
+
+        <div ng-cloak>
+          <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="Informacion">
+                <ul class="list-info-site">
+                  <li style="height: 50px; padding: 5px;">
+                    <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+                      <i class="icon ion-android-call"></i>
+                    </div>
+                    <div class="list-info-content">
+                      <input type="text" ng-model="datos.telefono">
+                    </div>
+                    <div class="list-info-tag" style="font-size: 14px; color: rgb(132, 132, 132);">
+                        Teléfono
+                    </div>
+                  </li>
+                  <li style="height: 50px; padding: 5px;">
+                    <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+                      <i class="icon ion-android-call"></i>
+                    </div>
+                    <div class="list-info-content">
+                      <input type="text" ng-model="datos.celular">
+                    </div>
+                    <div class="list-info-tag" style="font-size: 14px; color: rgb(132, 132, 132);">
+                        Móvil
+                    </div>
+                  </li>
+                  <li style="height: 50px; padding: 5px;">
+                    <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+                      <i class="icon ion-android-mail"></i>
+                    </div>
+                    <div class="list-info-content">
+                        <input type="text" ng-model="datos.correo">
+                    </div>
+                    <div class="list-info-tag" style="font-size: 14px; color: rgb(132, 132, 132);">
+                        Correo
+                    </div>
+                  </li>
+                  <li style="height: 50px; padding: 5px;">
+                    <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+                      <i class="icon ion-android-pin"></i>
+                    </div>
+                    <div class="list-info-content">
+                      <input type="text" ng-model="datos.direccion">
+                    </div>
+                    <div class="list-info-tag" style="font-size: 14px; color: rgb(132, 132, 132);">
+                        Ubicación
+                    </div>
+                  </li>
+                  <li class="li-cont-mapa">
+                    <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+                      <i class="icon ion-android-pin"></i>
+                    </div>
+                      <div class="list-info-map" style="font-size: 14px; color: rgb(132, 132, 132);">
+                        Ubicación
+                      </div>
+                    <div class="mapWrap-establecimiento"  data-tap-disabled="true">
+                      <map center="{{center_position.lat}},{{center_position.lng}}" zoom="11">
+                      </map>
+                      <div class="marcador-centro">
+                          <img class="img-marcador" ng-src="img/marcador.jpg" ng-model="imagenavatar">
+                      </div>
+                      <div class="row center-map-action">
+                        <div class="list">
+                          <div class="item item-input-inset">
+                            <a class="button button-icon icon ion-pinpoint" ng-click="centerOnMe()"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="site-details">
+                  <div class="site-detalles-title" style="padding-left: 14px;">Detalles:</div>
+                  <p class="site-details-text" style="padding: 0px 23px;">
+                    {{datos.descripcion}}
+                  </p>
+                </div>
+                <div class="save-button">
+                  <button ng-click="actualizarestablecimiento()">Guardar</button>
+                </div>
+              </md-tab>
+              <md-tab label="Profesionales">
+                <div class="add-prof-site">
+                  <p>Agregar profesional</p>
+                  <div class="item item-input-inset">
+                    <button class="add" ng-click="agregarProf()">Agregar</button>
+                  </div>
+                </div>
+                <ul class="list-info-site">
+                  <li style="height: 50px; padding: 5px;">
+                    {{profesionales.mensaje}}
+                  </li>
+                </ul>
+                <ul class="list-prof-site">
+                  <li class="info-prof-site" ng-repeat="profesional in profesionales.profesionales">
+                    <div class="cont-prof">
+                      <div class="img-prof-site">
+                        <img ng-src="{{profesional.foto}}" ng-model="imagenavatar" />
+                      </div>
+                      <div class="inf-prof-site">
+                        <p class="name-prof-site">{{profesional.nombre}}</p>
+                        <p class="name-prof-site">{{profesional.correo}}</p>
+                      </div>
+                      <div class="cont-btn-dlt">
+                        <button class="bt-dlt" ng-click="eliminarProf('{{profesional.idUsuario}}')" ng-confirm-click="¿Deseas eliminar al profesional del tu establecimiento?">X</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </md-tab>
+              
+            </md-tabs>
+          </md-content>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<md-dialog>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmacion de perfil profesional</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="bottom-content">
+        <ul class="list-menu">
+          <div class="item item-divider">
+            Datos adicionales
+          </div>
+          <div class="item item-divider">Llena los sigientes campos</div>
+          <label class="item item-input item-icon-left">
+            <div class="cont-label">
+              <span class="input-label">Para solicitar un perfil de tipo Profesional</span>
+              <br>
+              <span> en el que pudedas ofrecer tus servicios como estilista </span>
+            </div>
+          </label>
+        </ul>
+        <div>
+          <button  class="button button-large button-positive icon ion-scissors profesional" ng-click="irCrearPerfilPro()"> </i> Ir</button>
+        </div>
+      </div>
+
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

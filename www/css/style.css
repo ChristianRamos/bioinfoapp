@@ -1,0 +1,1826 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+/*================================
+         Estilos globales
+==================================*/
+.pull-right{
+    float:right;
+}
+.pull-left{
+    float:left;
+}
+.display-block-inline{
+  display: inline-block;
+  width: 100%
+}
+/*================================
+        //Estilos globales
+==================================*/
+/*================================
+         Estilos Menu top
+==================================*/
+.bar.app-top-bar.bar-black {
+    background-color: rgba(8, 8, 8, 0.4);
+}
+
+/*================================
+        //Estilos Menu top
+==================================*/
+
+/*================================
+         Estilos Menu lateral
+==================================*/
+/*color*/
+ion-side-menu ion-content {
+    background-color: #f3f3f3;
+}
+
+/*menu-ltral perfil*/
+ion-side-menu .list {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+ion-side-menu .heading-item.item-avatar{
+}
+ion-side-menu .heading-item .item-content {
+    height: 125px;
+    padding-top: 30px;
+    padding-left: 110px;
+    padding-right: 24px;
+    background-color: #272c30;
+    padding-bottom: 0px;
+}
+ion-side-menu ion-item.item .item-content {
+    background-color: #f3f3f3;
+    border-bottom:1px solid rgba(0, 0, 0, 0.38);
+}
+ion-side-menu .heading-item .user-image-container {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+/*menu-ltral imagen perfil*/
+ion-side-menu .heading-item .user-image-container .user-image {
+    border-radius: 50%;
+    padding: 0;
+    border: 1px solid #d6d6d6;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+/*menu-ltral datos perfil*/
+ion-side-menu .heading-item .message {
+    color: #999999;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+}
+ion-side-menu .heading-item .greeting {
+    color: #333;
+    font-weight: 500;
+    text-align: right;
+}
+/*menu-ltral botones servicios*/
+.list-menu{}
+.list-menu .item.item-divider{
+    border:none;
+    text-align:center;
+    font-size:small;
+    color: #d4d4d4;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.list-menu .item {
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: #f3f3f3;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left-color: #f3f3f3;
+    background: #f3f3f3;
+    font-size: smaller;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+.list-menu .item i {
+    font-size: 2.0rem;
+    color: #c7c7c7;
+}
+.list-menu i.size-font-small{
+    font-size: 1.0rem;
+    text-align: right;
+}
+
+/*================================
+        //Estilos Menu lateral
+==================================*/
+/*================================
+     Estilos contenedores home
+==================================*/
+
+
+
+/*================================
+     /Estilos contenedores home
+==================================*/
+/*================================
+        Estilos cards
+==================================*/
+/*rating estrellas*/
+.rating{}
+.star-simple{}
+.star-llena{}
+/*contenedor de cards*/
+.block{
+    padding-left:10px;
+    padding-right:10px;
+}
+/*titulos anteriores a las card*/
+.block-title{
+    margin-top:10px;
+    margin-bottom:5px;
+    position: relative;
+    display:inline-block;
+    width:100%;
+}
+.block .pane{
+    background:none;
+}
+.block .list:last-child.card {
+    margin-bottom: 0px;
+}
+.block  .text-cut{
+    max-width: 230px;
+    width: auto;
+    padding: 0 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.block hr{
+    display: block;
+    -webkit-margin-before: .5em;
+    -webkit-margin-after: .3em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+/*estilo imagen card*/
+/*card card header*/
+.card .card-header {
+    width: 100%;
+    height: 12rem;
+    background-size: cover;
+}
+/*titilos secciones*/
+.title-sec{
+    font-weight:600;
+}
+.title-all{
+    font-weight:600;
+    font-size:smaller;
+}
+.card .text-cut{
+    max-width: 170px;
+    width: auto;
+    padding: 0 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*estilos nombres card establecimiento*/
+.name-site{
+    margin-bottom:4px;
+}
+.title-cat-card{
+    line-height:inherit;
+    font-size:small;
+    margin-bottom:5px;
+}
+/*estilos para menu home*/
+/*slide banner*/
+ion-content .cont-banner{
+   position:relative;
+   width:100%;
+   height:12rem;
+   padding-bottom: px;
+}
+.card.banner{
+    margin:0;
+}
+.card.banner {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.card.banner .card-header {
+    width: 100%;
+    height: 12rem;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+.card.banner .item:first-child{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.list:last-child.card.banner  {
+    margin-bottom: 15px;
+}
+/**/
+.cont-hidden{
+    width:100%;
+}
+/*card busca*/
+ion-content .cont-busca{
+   position:relative;
+   width:100%;
+   height:90px;
+}
+
+.card.busca{
+   margin:0;
+}
+.card.busca .card-header {
+    width: 100%;
+    height: 9rem;
+    background-size: 100% auto;
+}
+/*card servicios*/
+ion-content .cont-servicios{
+   position:relative;
+   width:100%;
+   height: 90px;
+   padding-bottom: 5px;
+   margin-left:0;
+}
+.card.servicios{
+   margin:0;
+   border-radius:1rem
+}
+.card.servicios .card-header {
+    width: 100%;
+    height: 9rem;
+    background-size: 100% auto;
+    border-radius:1rem
+}
+/*estilos card establecimiento*/
+ion-content .cont-card{
+   position:relative;
+   width:100%;
+   height: 201px;
+   padding-bottom: 5px;
+   margin-left:0;
+}
+ion-content .cont-card .swiper-slide {
+    width: 65%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.card.sites{
+    margin:0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius:.7rem;
+}
+/*estilos card profesional*/
+ion-content .cont-profesional{
+   position:relative;
+   width:100%;
+   height: 190px;
+   padding-bottom: 5px;
+   margin-left:0;
+}
+ion-content .cont-profesional .swiper-slide {
+    width: 115px;
+}
+.card.profesional{
+    margin:0;
+    box-shadow: none;
+    border-radius:.7rem;
+    background:none;
+}
+/*card profesional header*/
+.card.profesional .card-header {
+    width: 100%;
+    height: 11.5rem;
+    border-radius:50%;
+    background-size: cover;
+}
+.card.profesional .padding{
+    padding: 0 5px;
+}
+
+/*================================
+        //Estilos cards
+==================================*/
+/*================================
+          ratting estrellas
+==================================*/
+ion-icon {
+  display: inline-block;
+  font-size: 1.2em;
+}
+/*================================
+          /ratting estrellas
+==================================*/
+/*================================
+        Edicion perfil usuario
+==================================*/
+.profile-view .top-content {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    height: 20vh;
+    margin-bottom: 15vh;
+}
+.profile-view .list-menu .item {
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: #f3f3f3;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left-color: #f3f3f3;
+    background: #f7f7f7;
+    font-size: smaller;
+    padding: 10px;
+}
+/*imagen avatar*/
+.profile-view .user-image-container {
+    width: 35vw;
+}
+.profile-view .user-image-container .user-image {
+    border-top: 1px solid #444444;
+    padding: 0;
+    border: 1px solid #d6d6d6;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+/*background perfil*/
+.multi-bg-outer {
+    background-color: rgba(221, 221, 221, 0);
+    height: 100%;
+    z-index: -2;
+}
+.multi-bg-outer .bg-overlay {
+    background-color: #303030;
+    z-index: -1;
+    opacity: 0.1;
+}
+/*datos perfil*/
+/*estilos input*/
+.cont-label{
+     display: table;
+     padding: 0 5px 0 0px;
+}
+.cont-label .icon {
+    left:3;
+    color: #7b7b7b;
+}
+.cont-label .input-label {
+    display: table;
+    padding: 7px 10px 7px 10px;
+    max-width: 200px;
+    width: 20%;
+    color: #7b7b7b;
+    font-size: 12px;
+}
+.list-menu .item input.ng-valid{
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+.card.me {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 0px;
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: #f3f3f3;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left-color: #f3f3f3;
+    background: #f7f7f7;
+    font-size: smaller;
+    padding:0px;
+}
+.card.me .item-divider {
+    border:none;
+    text-align:center;
+    font-size:small;
+    color: #d4d4d4;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.card.me .item-text-wrap{
+ font-size:small;
+}
+
+button.button.profesional{
+    width: 100%;
+    padding: 0 10px;
+    min-width: 68px;
+    min-height: 35px;
+    font-size: 18px;
+    line-height: 42px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+/*===========
+  vista de lista de establecimientos del profesional
+============*/
+/*contendedor establecimiento*/
+.cont-est{
+  height: 127px;
+  margin-top: -0.5rem;
+}
+/*IMAGEN*/
+.img-list-est{
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  display: inline-block;
+  height: 56px;
+  left: 16px;
+  position: absolute;
+  width: 56px;
+}
+/*CONTENERDOR INFORMACION */
+.cont-info-est{
+  position: absolute;
+  left: 81px;
+  width: 72%;
+}
+/*TEXTOS*/
+.name-est{
+  position: absolute;
+  margin-top: -5px;
+  font-size: medium;
+}
+.datos-est{
+  position: initial;
+  margin-top: 13px;
+  text-align: left;
+}
+.datos-est p{
+  font-size: x-small;
+}
+.cont-text-confirmado p{
+  font-size: small;
+  font-family: inherit;
+  color: green;
+}
+.cont-text-no-confirmado p{
+  font-size: small;
+  font-family: inherit;
+  color: red;
+}
+/*BOTON*/
+.cont-btn-edit-est{
+  position: absolute;
+  margin-left: 18.5rem;
+  margin-top: -2.5rem;
+}
+.btn-edit-est{
+  border-bottom-color: #dbdbdb;
+}
+/*==========
+  fin vista lista de establecimientos del profesional
+===========*/
+/*================================
+       //Edicion perfil usuario
+==================================*/
+.estilo-fecha{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: relative;
+}
+/*================================
+        Edicion perfil usuario
+==================================*/
+.profile-view .top-content {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    height: 20vh;
+    margin-bottom: 25vh;
+}
+.profile-view .list-menu .item {
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: #f3f3f3;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left-color: #f3f3f3;
+    background: #f7f7f7;
+    font-size: smaller;
+    padding: 10px;
+}
+/*imagen avatar*/
+.profile-view .user-image-container {
+    width: 35vw;
+}
+.profile-view .user-image-container .user-image {
+    border-top: 1px solid #444444;
+    padding: 0;
+    border: 1px solid #d6d6d6;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+/*background perfil*/
+.multi-bg-outer {
+    background-color: rgba(221, 221, 221, 0);
+    height: 100%;
+    z-index: -2;
+}
+.multi-bg-outer .bg-overlay {
+    background-color: #303030;
+    z-index: -1;
+    opacity: 0.1;
+}
+/*datos perfil*/
+/*estilos input*/
+.cont-label{
+     display: table;
+     padding: 0 5px 0 0px;
+}
+.cont-label .icon {
+    left:3;
+    color: #7b7b7b;
+}
+.cont-label .input-label {
+    display: table;
+    padding: 7px 10px 7px 10px;
+    max-width: 200px;
+    width: 20%;
+    color: #7b7b7b;
+    font-size: 12px;
+}
+.list-menu .item input.ng-valid{
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+.card.me {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 0px;
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: #f3f3f3;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left-color: #f3f3f3;
+    background: #f7f7f7;
+    font-size: smaller;
+    padding:0px;
+}
+.card.me .item-divider {
+    border:none;
+    text-align:center;
+    font-size:small;
+    color: #d4d4d4;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.card.me .item-text-wrap{
+ font-size:small;
+}
+
+button.button.profesional{
+    width: 100%;
+    padding: 0 10px;
+    min-width: 68px;
+    min-height: 35px;
+    font-size: 18px;
+    line-height: 42px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+/*================================
+       //Edicion perfil usuario
+==================================*/
+/*================================
+       Edicion Establecimiento
+==================================*/
+.info-prof-site{
+
+}
+.cont-prof{
+  height: 76px;
+  border-radius: 15px;
+  background-color: rgba(1,1,1,0.7);
+  margin-right: 1.5rem;
+}
+.img-prof-site{
+  width: 92px;
+  height: auto;
+  position: absolute;
+}
+.img-prof-site img{
+    height: 68px;
+  border-radius: 23px;
+  margin-top: .5rem;
+
+}
+.inf-prof-site{
+  position: absolute;
+  margin-left: 19rem;
+}
+.name-prof-site{
+  color: white;
+  font-size: 1.2rem;
+}
+.cont-btn-dlt{
+  position: absolute;
+  margin-left: 28rem;
+  margin-top: 2rem;
+}
+.bt-dlt{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+}
+
+/*================================
+       //Edicion Establecimiento
+==================================*/
+/** Demo styles for mdCalendar. */
+.estilo-fecha{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: relative;
+}
+.datepickerdemoBasicUsage {
+
+}
+.datepickerdemoBasicUsage md-datepicker {
+   width:100%;
+   margin-right: 0;
+
+}
+.datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px;
+}
+.datepickerdemoBasicUsage .md-datepicker-input {
+    min-width: 230px!important;
+    max-width: 320px;
+
+}
+.datepickerdemoBasicUsage .md-button.md-icon-button {
+    margin: 0 0px;
+    height: 0px;
+    min-width: 0;
+    line-height: 0px;
+    padding: 0px;
+    width: 25px;
+    border-radius: 0%;
+}
+.datepickerdemoBasicUsage  md-icon {
+    margin: auto;
+    background-repeat: no-repeat no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    height: 25px;
+    width: 25px;
+    min-height: 25px;
+    min-width: 25px;
+}
+.datepickerdemoBasicUsage  .md-icon-button + .md-datepicker-input-container {
+    margin-left: 5px;
+}
+
+.datepickerdemoBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin-left: 15px;
+}
+
+.user-name {
+    font-size: 25px !important;
+}
+
+/* Empty. Add your own CSS if you like */
+
+
+
+/*vista establecimientos busqueda*/
+.avatar, .item-avatar .avatar {
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    height: 56px;
+    left: 16px;
+    position: absolute;
+    width: 56px;
+}
+
+/*================================
+        Estilos Comentarios
+==================================*/
+
+.foto-comentario{
+    max-width: 60px;
+    border-radius: 50%;
+}
+
+.foto-contenedor-comentario{
+    width: auto;
+    padding: 10px;
+    display: inline-block;
+    float: left;
+}
+
+.comentario{
+    width:100%;
+    min-height: 100px;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.contenido-comentario{
+    display: flex;
+    flex: 1 1 auto;
+    padding-right: 15px;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.marco-contenido-comentario{
+    width: 100%;
+    min-height: 65px;
+    background-color: rgb(232, 231, 231);
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.fecha-comentario{
+    font-size: 10px;
+}
+
+/*================================
+        //Estilos Comentarios
+==================================*/
+
+
+/*modales*/
+.dialogdemoBasicUsage #popupContainer {
+  position: relative; }
+
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; }
+
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; }
+
+.dialogdemoBasicUsage button {
+  width: 200px; }
+
+.dialogdemoBasicUsage div#status {
+  color: #c60008; }
+
+.dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+  margin-bottom: 0; }
+.save {
+}
+
+/*=========================
+  Estilos mapa crear establecimiento
+=========================*/
+.mapWrap-establecimiento{
+  width: 400px;
+  height: 350px
+}
+.marcador-centro{
+  width: 20px;
+  position:  relative;
+  margin-top: -11rem;
+}
+.marcador-centro .img-marcador{
+  width: 20px;
+  position: absolute;
+  margin-top: -58px;
+  margin-left: 190px;
+}
+/*=========================
+  FIN Estilos mapa crear establecimiento
+=========================*/
+
+/*=========================
+  Estilos Mis Reservas
+=========================*/
+.main-content-reservas {
+  top: 50px
+}
+
+.saved-reserve-msg {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(143, 212, 136);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.saved-reserve-msg-center {
+  padding: 35px 10px;
+}
+
+.reservas-titulo {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(183,183,183);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.reservas-titulo-center {
+  padding: 13px;
+}
+
+.reservas-wrapper {
+  padding: 15px;
+  background-color: rgb(236, 237, 239);
+}
+
+.reserva {
+  margin-bottom: 15px;
+}
+
+.reservas-row {
+  height: 75px;
+  padding:7px;
+  background-color: white;
+}
+
+.reserva-left-wrapper {
+  margin-right: 13px;
+}
+
+.reserva-foto-profesional {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.reserva-prs-photo {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.reserva-more-btn {
+  font-size: 40px;
+  padding: 10px 0px 10px 5px;
+  width: 30px;
+  height: auto;
+  text-align: right;
+}
+
+.reserva-clr-lower-bar {
+  width: 100%;
+  height: 5px;
+  top: -4px;
+  position: relative;
+}
+
+.reserva-clr-lower-bar-reserva {
+  background-color: rgb(143, 212, 136);
+}
+
+.reserva-clr-lower-bar-pasada {
+  background-color: rgb(248, 254, 0);
+}
+
+.reserva-clr-lower-bar-cancelada {
+  background-color: rgb(233, 182, 182);
+}
+
+.reservas-btn-mas {
+  width: 100%;
+  border: none;
+  background-color: rgb(158, 158, 158);
+  height: 50px;
+}
+
+.reservas-wrapper-error {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+/*=========================
+  FIN Estilos Mis Reservas
+=========================*/
+/*=========================
+  Estilos Mis Reservas Específica
+=========================*/
+.header-bar-revr-especifica {
+  background-color: rgb(183,183,183);
+}
+
+.cancel-btn-especifica {
+  color: black;
+}
+
+.reserva-esp-container {
+  padding: 20px;
+}
+
+.reserva-esp-title-row {
+  width: 100%;
+  height: 65px;
+  background-color: rgb(183,183,183);
+  padding: 7px;
+}
+
+.reserva-esp-foto-profesional {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 25px;
+  float: left;
+}
+
+.reserva-esp-prs-photo {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.reservas-esp-prof-title {
+  text-align: center;
+  margin-top: 10px;
+  float: left;
+  width: 80%;
+}
+
+.reservas-esp-prof-name {
+  font-size: 20px;
+}
+
+.reserva-esp-content-row {
+  width: 100%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.reserva-esp-content-lft-title {
+  width: 100px;
+  height: 44px;
+  float: left;
+  background: rgb(197, 197, 197);
+  text-align: right;
+  padding-top: 10px;
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.reserva-esp-fecha, .reserva-esp-hora {
+  height: 44px;
+  width: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.reserva-esp-notas-row {
+  margin-top: 10px;
+}
+
+.reserva-esp-notas-title {
+  width: 100%;
+  float: left;
+  height: 44px;
+  background: rgb(197, 197, 197);
+  text-align: center;
+  padding-top: 10px;
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.reserva-esp-notas {
+  border: 1px solid black;
+  float: left;
+  width: 100%;
+  min-height: 60px;
+}
+
+.reserva-esp-btns-cancel {
+  border: none;
+  height: 50px;
+  margin-top: 6px;
+}
+
+.btn-cancel-cancel {
+  width: 100%;
+  background-color: rgb(233, 182, 182);
+}
+
+.btn-cancel-confirm {
+  width: 50%;
+  background-color: rgb(233, 182, 182);
+  float:left;
+}
+
+.btn-cancel-decline {
+  width: 50%;
+  background-color: rgb(143, 212, 136);
+  float:left;
+}
+
+.confirma-cancela-btns {
+  margin-top: 6px;
+  float:left;
+}
+/*=========================
+  FIN Estilos Mis Reservas Específica
+=========================*/
+/*=========================
+  Estilos Reservas Establecimiento
+=========================*/
+.main-content {
+  top: 50px
+}
+
+.cont-profesional-titlerow {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(186, 186, 186);
+  padding-top: 18px;
+  text-align: center;
+}
+
+.cont-profesional {
+  margin-bottom: 65px;
+}
+
+.prof-cards {
+  margin-right: 15px;
+}
+
+.cont-date-titlerow {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(186, 186, 186);
+  padding-top: 18px;
+  text-align: center;
+}
+
+.prof-seleccion-mg-error {
+  width: 100%;
+  height: 90px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.reservas-estb-card {
+  height: 70px !important;
+  z-index: 10;
+}
+
+.reservas-estb-cont-hidden {
+  margin: 10px 0px;
+}
+
+.prof-cards {
+  width: 115px !important;
+}
+
+.hour-content {
+  height: 100%;
+  width: 85px;
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.hour-free {
+  background-color: rgb(239, 237, 237);
+}
+
+.hour-selected {
+    background-color: rgb(143, 212, 136);
+}
+
+.hour-blocked {
+  background-color: rgb(233, 182, 182);
+}
+
+.notes-container {
+  margin: 10px 0px;
+}
+
+.cont-notes-titlerow {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(186, 186, 186);
+  padding-top: 18px;
+  text-align: center;
+}
+
+.notes-inner-wrapper {
+  width: 100%;
+  padding: 15px;
+}
+
+.reserva-estb-nota {
+  border: 1px solid black;
+  float: left;
+  width: 100%;
+  resize: none;
+  margin: 8px 0px;
+  min-height: 60px;
+}
+
+.reserva-estb-reserva-btn {
+  width: 100%;
+  border: none;
+  height: 60px;
+  background-color: rgb(143, 212, 136);
+}
+/*=========================
+  FIN Estilos Reservas Establecimiento
+=========================*/
+/*=========================
+  Estilos Mis Favoritos
+=========================*/
+.favoritos-titulo {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(183,183,183);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.favoritos-titulo-center {
+  padding: 13px;
+}
+
+.favoritos-wrapper {
+  padding: 15px;
+  background-color: rgb(236, 237, 239);
+}
+
+.favorito {
+  margin-bottom: 15px;
+}
+
+.favoritos-row {
+  height: 75px;
+  padding:7px;
+  background-color: white;
+}
+
+.favorito-left-wrapper {
+  margin-right: 13px;
+}
+
+.favorito-foto-profesional {
+  width: 67px;
+  height: 67px;
+  overflow: hidden;
+}
+
+.favorito-foto-prf-img {
+  max-width: 67px;
+  max-height: 67px;
+}
+
+.favorito-more-btn {
+  font-size: 40px;
+  padding: 10px 0px 10px 5px;
+  width: 30px;
+  height: auto;
+  text-align:right;
+}
+
+.favoritos-wrapper-error {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+/*=========================
+  FIN Estilos Mis Favoritos
+=========================*/
+/*=========================
+  Perfil de establecimiento
+=========================*/
+.upper-content {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  height: 48vh;
+}
+
+.upper-img-wrapper {
+  width: 100%;
+  height: 48vh;
+  overflow: hidden;
+}
+
+.upper-img-photo {
+  width: 100%;
+}
+
+.upper-low-bar-wrapper {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  top: -18vh;
+}
+
+.upper-favoritos-btn-container {
+  position: absolute;
+  right: 0;
+  right: 15px;
+  top: -20px;
+}
+
+.upper-favoritos-btn {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  border: none;
+}
+
+.upper-favoritos-btn-no-fav {
+  background: rgb(250,249,249);
+}
+
+.upper-favoritos-btn-si-fav {
+  background: rgb(252, 241, 208);
+}
+
+.upper-favoritos-btn-star {
+  font-size: 35px;
+}
+
+.upper-favoritos-btn-no-fav {
+  color: rgb(121, 121, 121);
+}
+
+.upper-favoritos-btn-si-fav {
+  color: rgb(255, 207, 0);
+}
+
+.upper-low-sitename {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(1,1,1,0.7);
+  color: white;
+  padding: 15px;
+}
+
+.upper-low-stars-container {
+  display: block;
+  font-size: 27px;
+  background-color: #4c4643;
+  margin-top: 3px;
+  padding-left: 15px;
+  padding-bottom: 3px;
+}
+
+.siteprofile-star-icon {
+  color: rgb(190, 194, 52);
+}
+
+.categories-wrapper {
+  width: 100%;
+}
+
+.category-container {
+  margin-top: 10px;
+}
+
+.category-row {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(236, 237, 239);
+  padding: 6px;
+  font-size: 19px;
+}
+
+.category-row .category-more {
+  width: 30px;
+  height: 30px;
+  float: right;
+  color: rgb( 104, 96, 96 );
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.services-wrapper {
+  width:100%;
+  background-color:rgb(236, 237, 239);
+  padding: 0px 10px 10px 10px;
+  top: -10px;
+  position: relative;
+  display: none;
+}
+
+.service-row {
+  width: 100%;
+  height: 50px;
+  background-color: rgb( 250,249,249 );
+  margin-top:10px;
+  padding: 10px 0px 0px 10px;
+}
+
+.service-left-star {
+  float:left;
+}
+
+.service-title {
+  max-width: 150px;
+  float:left;
+}
+
+.service-controls {
+  width: 100px;
+  float: right;
+}
+
+.service-more {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.service-price-symb {
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+
+.service-description {
+  background-color: rgb( 205,206,211 );
+  padding: 15px;
+  display:none;
+  cursor: pointer;
+}
+
+.service-reserve-row {
+  height: 50px;
+  width: 100%;
+}
+
+.service-reserve-btn {
+  float: right;
+  font-size: 20px;
+  color: white;
+  background-color: rgb( 67,61,59 );
+  padding: 5px 8px;
+}
+
+.service-calendar-icon {
+  margin: 0px 10px;
+  color: white;
+}
+
+.service-description-title {
+  margin-bottom: 10px;
+}
+
+.category-error {
+  margin-top: 15px;
+}
+
+.category-error-msg {
+  width: 100%;
+  min-height: 100px;
+  text-align: center;
+  background-color: rgb(186,186,189);
+  border: none;
+}
+
+.list-info-site li {
+  height: 50px;
+  padding: 5px;
+}
+
+.list-info-icon {
+  height: 100%;
+  width: 35px;
+  float: left;
+  font-size: 22px;
+  padding: 5px;
+}
+
+.list-info-tag {
+  font-size: 14px;
+  color: rgb(132, 132, 132);
+}
+
+.site-detalles-title {
+    padding-left: 14px;
+}
+
+.site-details-text {
+  padding: 0px 23px;
+}
+
+.vote-wrapper {
+  padding-bottom: 20px;
+}
+
+.vote-title-row {
+  padding: 11px;
+  background-color: rgb(186,186,189);
+  height: 49px;
+  font-size: 22px;
+}
+
+.vote-title-star-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.vote-title {
+  width: 20vh;
+  float: left;
+}
+
+.vote-usr-cant {
+  float: right;
+  margin-right: 10px;
+}
+
+.vote-box-str-container {
+  display:block;
+  text-align: center;
+  font-size:45px;
+}
+
+.vote-box-str-container-error {
+  display:block;
+  text-align: center;
+  font-size:45px;
+}
+
+.comments-title-row {
+  padding: 11px;
+  background-color: rgb(186,186,189);
+  height: 49px;
+  font-size: 22px;
+}
+
+.comments-chatbox-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.comments-title {
+  width: 20vh;
+  float: left;
+}
+
+.comments-usr-cant {
+  float: right;
+  margin-right: 10px;
+}
+
+.commentable-box {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.comments-comment-txtarea {
+  border: 1px solid black;
+  float: left;
+  width: 100%;
+  resize: none;
+  margin: 8px 0px;
+  min-height: 60px;
+}
+
+.btn-comentar {
+  width: 20vh;
+  height: 50px;
+  background-color: rgb(186,186,189);
+  border: none;
+  float: right;
+}
+
+.comments-container {
+  background-color: rgb(247, 248, 248);
+  padding: 6px;
+  float: left;
+  width: 100%;
+}
+
+.comment {
+  background-color: white;
+  border: 1px solid gray;
+  width: 100%;
+  float: left;
+  padding: 8px;
+}
+
+.comment-upperside {
+  float:left;
+}
+
+.comment-leftside {
+  width: 45vh;
+  float: left;
+}
+
+.comment-date {
+  font-size: 14px;
+  color: rgb( 97,90,92);
+  margin-bottom: 9px;
+}
+
+.comment-rightside {
+  width: 11vh;
+  float: right;
+}
+
+.comment-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.comment-photo img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.comment-downside {
+  float:left;
+  margin-top: 8px;
+}
+
+.comment-cont {
+  font-size: 14px;
+  text-align: justify;
+  color: rgb( 97,90,92);
+}
+
+.btn-ver-mas-comentarios {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(186,186,189);
+  border: none;
+}
+/*=========================
+  FIN Perfil de establecimiento
+=========================*/
+
+/*=========================
+ Perfil de profesional
+=========================*/
+.profile-container {
+  width: 100%;
+}
+
+.user-image-wrapper {
+  border: none;
+  background-color: rgba(1,1,1,0);
+}
+
+.user-title-row {
+  text-align: left;
+}
+
+.user-name {
+  width: auto;
+  float:left;
+}
+
+.user-stars-wrapper {
+  width: auto;
+  float: right;
+  text-align: left;
+  top: -15px;
+  position: relative;
+}
+
+.user-stars-container {
+  display: block;
+  font-size: 27px;
+  margin-top: 3px;
+  padding-left: 15px;
+  padding-bottom: 3px;
+}
+/*=========================
+ FIN Perfil de profesional
+=========================*/
+/*=========================
+ Template modal
+=========================*/
+.login-header-bar {
+  background: rgb(236,237,239);
+}
+
+.modal-close-btn {
+  color: black;
+}
+
+.modal-content-wrapper {
+  background: rgb(236,237,239);
+}
+
+.login-form-wrapper {
+  padding:30px;
+}
+
+.login-form-container {
+  padding: 5px; background: white;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 5px;
+  height: 50px !important;
+}
+
+.modal-login-email {
+  border: 1px solid rgb(154,153,158) !important;
+}
+
+.modal-login-passwrd {
+  border-left: 1px solid rgb(154,153,158) !important;
+  border-right: 1px solid rgb(154,153,158) !important;
+  border-bottom: 1px solid rgb(154,153,158) !important;
+}
+
+.modal-btn-iniciar-sess {
+  margin-top: 0px !important;
+}
+
+.modal-snet-login-btns {
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+}
+
+.modal-facebook-login-btn {
+  background: rgb(59, 89, 152);
+}
+
+.modal-google-login-btn {
+  background: rgb(211, 72, 54);
+}
+
+.modal-facebook-login-btn i, .modal-google-login-btn i {
+  color: white;
+}
+
+.modal-lower-link {
+  font-size: 18px;
+}
+
+.modal-registro-nombre {
+  border: 1px solid rgb(154,153,158);
+}
+
+.modal-registro-apellido {
+  border-top: none !important;
+  border-left: 1px solid rgb(154,153,158) !important;
+  border-right: 1px solid rgb(154,153,158) !important;
+  border-bottom: 1px solid rgb(154,153,158) !important;
+}
+
+.modal-registro-correo {
+  border-left: 1px solid rgb(154,153,158) !important;
+  border-right: 1px solid rgb(154,153,158) !important;
+  border-bottom: 1px solid rgb(154,153,158) !important;
+}
+
+.modal-registro-passwrd {
+  border-left: 1px solid rgb(154,153,158) !important;
+  border-right: 1px solid rgb(154,153,158) !important;
+  border-bottom: 1px solid rgb(154,153,158) !important;
+}
+
+/*=========================
+ FIN Template modal
+=========================*/
+
+/*===============================
+  fin estilos crear establecimiento
+================================*/
+
+/*==============================
+  estilos area notificaciones
+===============================*/
+.img-notificacion{
+  background-position: center;
+  background-size: cover;
+  border-radius: 13%;
+  display: inline-block;
+  height: 50px;
+  left: 16px;
+  position: absolute;
+  width: 50px;
+}
+.txt-notificacion{
+  position: absolute;
+  left: 78px;
+  top: -4px;
+}
+/*=============================
+  fin estilos area notificaciones
+================================*/
+
+/*==============================
+  estilos Establecimientos cerca (Mapa)
+===============================*/
+
+.cont-card-estb-cerca {
+  height: 100px !important;
+  z-index: 10;
+}
+
+.site-tag {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(236, 237, 239);
+  position: absolute;
+  z-index: 10;
+  padding: 10px;
+}
+
+.site-tag-wrapper {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+}
+
+.foto-site-tag {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  float:left;
+  overflow: hidden;
+}
+
+.content-site-tag {
+  position: relative;
+  height: 80px;
+  width: 65%;
+  float: right;
+}
+
+#map {
+  width: 100%;
+  height: 74vh;
+}
+/*==============================
+  FIN estilos Establecimientos cerca (Mapa)
+===============================*/
+/*==============================
+  estilos Filtros Establecimientos (Mapa)
+===============================*/
+.modal-filtros-form-inp {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.modal-filter-name {
+  border: 1px solid rgb(154,153,158) !important;
+}
+
+.modal-filter-distance {
+  width: 100% !important;
+}
+
+.modal-btn-limpiar-filtro {
+  background-color: rgb(249, 89, 89) !important;
+}
+/*==============================
+  FIN estilos Filtros Establecimientos (Mapa)
+===============================*/

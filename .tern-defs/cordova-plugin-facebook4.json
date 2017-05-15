@@ -1,0 +1,44 @@
+{
+    "!name": "cordova-plugin-facebook4",
+    "!define": {
+        "!modules": {
+            "FacebookConnectPlugin": {
+                "getLoginStatus": "fn(s: ?, f: ?)",
+                "showDialog": "fn(options: ?, s: ?, f: ?)",
+                "login": "fn(permissions: ?, s: ?, f: ?)",
+                "logEvent": "fn(name: ?, params: ?, valueToSum: ?, s: ?, f: ?)",
+                "logPurchase": "fn(value: ?, currency: ?, s: ?, f: ?)",
+                "getAccessToken": "fn(s: ?, f: ?)",
+                "logout": "fn(s: ?, f: ?)",
+                "api": "fn(graphPath: ?, permissions: [?], s: ?, f: ?)",
+                "appInvite": "fn(options: ?, s: ?, f: ?)",
+                "getDeferredApplink": "fn(s: ?, f: ?)",
+                "activateApp": "fn(s: ?, f: ?)"
+            },
+            "FacebookConnectPluginBrowser": {
+                "getLoginStatus": "fn(s: ?, f: ?) -> number",
+                "showDialog": "fn(options: !modules.FacebookConnectPluginBrowser.showDialog.!0, s: ?, f: ?) -> number",
+                "login": "fn(permissions: ?, s: ?, f: ?) -> number",
+                "getAccessToken": "fn(s: ?, f: ?)",
+                "logEvent": "fn(eventName: ?, params: ?, valueToSum: ?, s: ?, f: ?)",
+                "logPurchase": "fn(value: ?, currency: ?, s: ?, f: ?)",
+                "appInvite": "fn(options: ?, s: ?, f: ?)",
+                "logout": "fn(s: ?, f: ?) -> number",
+                "api": "fn(graphPath: ?, permissions: ?, s: ?, f: ?) -> number",
+                "browserInit": "fn(appId: ?, version: ?, s: ?)"
+            }
+        },
+        "!modules.FacebookConnectPlugin.api.!1": "[?]",
+        "!modules.FacebookConnectPluginBrowser.showDialog.!0": {
+            "name": "string",
+            "message": "string",
+            "caption": "string",
+            "description": "string",
+            "href": "string",
+            "picture": "string",
+            "quote": "string"
+        }
+    },
+    "!plugin-version": "1.7.4",
+    "facebookConnectPlugin": "!modules.FacebookConnectPlugin"
+}
