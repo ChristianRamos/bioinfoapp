@@ -1,0 +1,154 @@
+<!--
+  NOTA:
+  No quitar las div que estan sin clase y contienen un "ng-if="" "
+  son  las validaciones de mostrar los campos segun el tipo de perfil y la accion
+  se este realizando
+-->
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span></span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="upper-content">
+      <div class="upper-img-wrapper" >
+        <img ng-src="{{resultado.datos.imagen}}" class="upper-img-photo" ng-model="imagenavatar"/>
+      </div>
+      <div class="upper-low-bar-wrapper">
+          <div class="upper-low-sitename">
+            {{resultado.datos.nombre}}
+          </div>
+
+      </div>
+    </div>
+    <div class="bottom-content">
+      <md-tabs md-dynamic-height md-border-bottom md-center-tabs>
+        <md-tab label="Informacion">
+
+          <div class="site-details">
+            <div class="list-info-icon">
+              <i class="icon ion-android-mail"></i>
+            </div>
+            <div class="site-detalles-title">Informacion:</div>
+            <p class="site-details-text">
+              {{resultado.datos.descripcion}}
+            </p>
+          </div>
+        </md-tab>
+        <md-tab label="Imagenes">
+          <div class="categories-wrapper">
+            <div ng-show="datos.categorias != null" class="category-container" ng-repeat="categoria in datos.categorias track by $index">
+              <div class="category-row">
+                {{categoria.nombre}}
+                <div class="category-more" ng-click="openServices(categoria.idCategoria)" id="categorie-more-{{$index}}">+</div>
+              </div>
+              <div class="services-wrapper" id="services-wrapper-{{categoria.idCategoria}}">
+                <div class="service-container" ng-repeat="servicio in categoria.servicios track by $index">
+                  <div class="service-row">
+                    <i class="icon star_value ion-ios-star service-left-star"></i>
+                    <div class="service-title">{{servicio.titulo}}</div>
+                    <div class="service-controls">
+                      <div class="service-more" ng-click="openService(categoria.idCategoria, servicio.idServicio)">
+                        <i class="icon ion-ios-arrow-down"></i>
+                      </div>
+                      <div class="service-price">
+                        <div class="service-price-symb">$</div>
+                        {{servicio.precio}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="service-description" id="service-description-{{categoria.idCategoria}}-{{servicio.idServicio}}">
+                    <div class="service-reserve-row">
+                        <div ng-if="login" class="service-reserve-btn" ui-sref="app.reservarEstablecimiento({ idestablecimiento: {{idEstablecimiento}}, servicio: {{servicio.idServicio}} })"><i class="icon star_value ion-calendar service-calendar-icon"></i>Agendar</div>
+                        <div ng-if="!login" class="service-reserve-btn"><i class="icon star_value ion-calendar service-calendar-icon"></i>Debes iniciar sesion para agendar</div>
+                    </div>
+                    <div class="service-description-title">Descripción del servicio:</div>
+                    {{servicio.descripcion}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ng-show="datos.categorias == null" class="category-error">
+              <button class="category-error-msg">
+                No se han registrado aún servicios para este sitio
+              </button>
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="Ubicacion">
+          <div ng-if="login" class="vote-wrapper">
+            <div class="vote-title-row">
+              <i class="icon ion-ios-star vote-title-star-icon"></i>
+              <div class="vote-title">Tu voto</div>
+              <div class="vote-usr-cant">
+                  {{datos.totalComentarios}}
+                  <i class="icon ion-ios-person"></i>
+              </div>
+            </div>
+            <div class="vote-box">
+              <div ng-if="login" class="vote-box-str-container">
+                <i class="icon star_rate ion-ios-star-outline siteprofile-star-icon" ng-click="clickStar(i)" ng-repeat="i in [0,1,2,3,4]"></i>
+              </div>
+              <div ng-if="!login" class="vote-box-str-container-error">
+                Debes iniciar sesion para poder votar
+              </div>
+            </div>
+          </div>
+          <div class="comments-wrapper">
+            <div class="comments-title-row">
+              <i class="icon ion-chatbox-working comments-chatbox-icon"></i>
+              <div class="comments-title">Reseñas</div>
+              <div class="comments-usr-cant">
+                  {{datos.totalComentarios}}
+                  <i class="icon ion-ios-person"></i>
+              </div>
+            </div>
+            <div ng-show="login" class="commentable-box">
+              <form>
+                <div "commentable-box-title">
+                  Realiza tu reseña:
+                </div>
+                <textarea ng-model="comentario.contenido" class="comments-comment-txtarea"></textarea>
+                <button ng-click="realizarComentario()" class="btn-comentar">
+                  Comentar
+                </button>
+              </form>
+            </div>
+            <div ng-show="!login" class="category-error">
+              <button class="category-error-msg">
+                Ingresa ya para realizar tu comentario
+              </button>
+            </div>
+            <div ng-show="datos.totalComentarios == 0 && login" class="comments-no-comments">
+              <button class="category-error-msg">
+                No se han realizado comentarios de este sitio aún, sé el primero
+              </button>
+            </div>
+            <div class="comments-container">
+              <div ng-repeat="comentario in datos.comentarios" class="comment">
+                <div class="comment-upperside">
+                  <div class="comment-leftside">
+                    <div class="comment-date">{{comentario.fecha}}</div>
+                    <div class="comment-name">{{comentario.nombre}}</div>
+                  </div>
+                  <div class="comment-rightside">
+                    <div class="comment-photo">
+                      <img src="{{comentario.foto}}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="comment-downside">
+                  <div class="comment-cont">
+                    {{comentario.comentario}}
+                  </div>
+                </div>
+              </div>
+              <button ng-show="!disabled && datos.totalComentarios != 0" ng-click="cargarMasComentarios()" class="btn-ver-mas-comentarios">
+                Ver más
+              </button>
+            </div>
+          </div>
+        </md-tab>
+      </md-tabs>
+    </div>
+  </ion-content>
+</ion-view>

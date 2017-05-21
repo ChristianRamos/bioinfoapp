@@ -284,7 +284,7 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 	$scope.parametro = {};
 	$scope.resultado = {};
 	angular.element(document).ready(function () {
-		consultaBio.consultaEspecimen($stateParams.especie,"flora").success(function (data){
+		consultaBio.buscarEspecimen($stateParams.especie,"flora").success(function (data){
 			$scope.resultado = data;
 		})
 	});
@@ -292,6 +292,19 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 		$ionicHistory.clearCache().then(function(){ $state.go('app.buscarEspecie',{ "especie": $scope.parametro.busqueda});});
 	}
 }])
+/*----------------
+	vista del especimen
+------------------*/
+.controller('especimenCtrl',['$scope','consultaBio','$stateParams','$state',function($scope,consultaBio,$stateParams,$state){
+	$scope.id=$stateParams.idEspecimen;
+	$scope.datos = {};
+	consultaBio.consultarEspecimen($scope.id,"flora").success(function(data){
+		$scope.resultado = data;
+		console.log($scope.resultado);
+	})
+	alert($scope.id);
+}])
+
 /*------------------
 	PERFIL DE USUARIO
 -------------------*/

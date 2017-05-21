@@ -160,6 +160,17 @@ angular.module('your_app_name', [
       }
     }
   })
+
+  //Vista del especimen 
+  .state('app.especie', {
+    url: "/especimen/:idEspecimen",
+    views: {
+      'menuContent': {
+        templateUrl: "views/app/vistaEspecimen.html",
+        controller: "especimenCtrl"
+      }
+    }
+  })
 /*
 
 .state('app.buscarEspecie', {

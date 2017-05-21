@@ -2,8 +2,12 @@
   .factory('consultaBio', function($http) {
     var path = "http://www.procevinos.com/Christian/Api/api.php";//API path
     return{
-      consultaEspecimen : function(especimen,tipo){
+      buscarEspecimen : function(especimen,tipo){
         global = $http.post(path,{accion: "consulta", especimen: especimen, tipo: tipo});
+        return global;
+      },
+      consultarEspecimen : function (id,tipo){
+        global = $http.post(path,{accion: "consultaE", idEspecimen:id, tipo: tipo});
         return global;
       }
     }
