@@ -291,6 +291,9 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 	$scope.ir = function (){
 		$ionicHistory.clearCache().then(function(){ $state.go('app.buscarEspecie',{ "especie": $scope.parametro.busqueda});});
 	}
+	$scope.ver = function (idEspecie){
+		$ionicHistory.clearCache().then(function(){ $state.go('app.especie',{ "idEspecimen": idEspecie});});
+	}
 }])
 /*----------------
 	vista del especimen
