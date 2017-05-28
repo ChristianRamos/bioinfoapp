@@ -298,14 +298,23 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 /*----------------
 	vista del especimen
 ------------------*/
-.controller('especimenCtrl',['$scope','consultaBio','$stateParams','$state',function($scope,consultaBio,$stateParams,$state){
+.controller('especimenCtrl',['$scope','consultaBio','$stateParams','$state','$ionicSlideBoxDelegate','$cordovaGeolocation','$ionicLoading','$compile',function($scope,consultaBio,$stateParams,$state,$ionicSlideBoxDelegate,$cordovaGeolocation,$ionicLoading,compile){
 	$scope.id=$stateParams.idEspecimen;
 	$scope.datos = {};
+	//consulta del la planta
 	consultaBio.consultarEspecimen($scope.id,"flora").success(function(data){
 		$scope.resultado = data;
 		console.log($scope.resultado);
 	})
-	alert($scope.id);
+	//slide de la galeria
+	$scope.slideVisible = function(index){
+			 if(  index < $ionicSlideBoxDelegate.currentIndex() -1
+			|| index > $ionicSlideBoxDelegate.currentIndex() + 1){
+		 return false;
+	 }
+			 return true;
+	 }
+	 
 }])
 
 /*------------------

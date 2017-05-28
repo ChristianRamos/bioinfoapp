@@ -1824,3 +1824,35 @@ button.button.profesional{
 /*==============================
   FIN estilos Filtros Establecimientos (Mapa)
 ===============================*/
+
+
+
+.ion-content{
+    background-color: grey;
+}
+
+.container{
+    background-color: grey;
+}
+
+.scrollCanvas{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.image{
+    width: 100%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center, center;
+}
+.scroll {
+    height: 100%;
+}
+
+#mapflora {
+    width: 300px;
+    height: 300px;
+}
