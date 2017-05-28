@@ -49,9 +49,28 @@
             </ion-slide-box>
         </md-tab>
         <md-tab label="Ubicacion">
-
-            <div id="mapflora" data-tap-disabled="true"></div>
-
+          <li class="li-cont-mapa">
+            <div class="list-info-icon" style="height: 100%; width: 35px; float: left; font-size: 22px; padding: 5px;">
+              <i class="icon ion-android-pin"></i>
+            </div>
+              <div class="list-info-map" style="font-size: 14px; color: rgb(132, 132, 132);">
+                Ubicación
+              </div>
+            <div class="mapWrap-establecimiento"  data-tap-disabled="true">
+              <map center="{{center_position.lat}},{{center_position.lng}}" zoom="11">
+              </map>
+              <div class="marcador-centro">
+                  <img class="img-marcador" ng-src="img/marcador.jpg" ng-model="imagenavatar">
+              </div>
+              <div class="row center-map-action">
+                <div class="list">
+                  <div class="item item-input-inset">
+                    <a class="button button-icon icon ion-pinpoint" ng-click="centerOnMe()"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </md-tab>
       </md-tabs>
     </div>
