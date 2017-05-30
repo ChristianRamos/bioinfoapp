@@ -311,71 +311,37 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 		$scope.coordenadas = $scope.resultado.datos.ubicaciones;
 		console.log($scope.coordenadas);
 		/*------- MAPA ---------*/
-				//variables del mapa
-				$scope.map = null;
-				$scope.markers = {};
-				/*$scope.markers.latitud = $scope.datos.latitud;
-				$scope.markers.longitud = $scope.datos.longitud;
-				console.log($scope.resultado.datos);*/
+		var options = {timeout: 10000, enableHighAccuracy: true};
 
-				$scope.$on('mapInitialized', function(event, map) {
-					$scope.map = map;
-					$scope.map.setZoom(15);
-					$scope.map.addListener('dragend', $scope.handleDragend);
+		$cordovaGeolocation.getCurrentPosition(options).then(function(position){
+			var latLng = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
+			var mapOptions = {
+				center: latLng,
+				zoom: 10,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			$scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+				for( var u = 0; u < $scope.coordenadas.length; u++ ){
+					console.log("marcador "+u+" creado");
+					var latlonnew = new google.maps.LatLng($scope.coordenadas[u].latitud, $scope.coordenadas[u].longitud);
+				  var marker = new google.maps.Marker({
+				      map: $scope.map,
+				      animation: google.maps.Animation.DROP,
+				      position: latLng
+				  });
+				}
+			});
+		}, function(error){
+			console.log("Could not get location");
+		});
+		/*-------FIN MAPA 	---------*/
 
-				});
-				//ubicacion actual
-				$scope.centerOnMe= function(){
-					$scope.positions = [];
-					$ionicLoading.show({
-						template: 'Cargando...'
-					});
-					// with this function you can get the user’s current position
-					// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
-					var options = { enableHighAccuracy: false};
-					$cordovaGeolocation.getCurrentPosition(options).then(function(position){
-						var pos = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
-						$scope.map.setZoom(8);
-						$scope.map.setCenter(pos);
-						$ionicLoading.hide();
-					});
-					for( var u = 0; u < $scope.coordenadas.length; u++ ){
-						(function(){
-							var cual = u;
-							console.log($scope.coordenadas[cual]);
-							$scope.markers[cual] = new google.maps.Marker({
-								position: new google.maps.LatLng( $scope.coordenadas[cual].latitud, $scope.coordenadas[cual].longitud ),
-								map: $scope.map
-
-							});
-							$scope.markers[cual].addListener('click', function(){
-								$scope.setMarkerClick( this, cual );
-							});
-
-
-						}());
-					}
-				};
-
-			/*-------FIN MAPA 	---------*/
-			$scope.centerOnMe();
 
 
 
 	})
-	$scope.setMarkerClick = function( marker, cual ){
 
-		var response = $scope.sitios[cual];
-		$scope.slider._slideTo(cual);
-
-		var pos = new google.maps.LatLng(marker.internalPosition.lat(), marker.internalPosition.lng());
-		$scope.map.panTo(pos);
-		console.log(marker);
-
-
-
-		$scope.$apply();
-	};
 	//slide de la galeria
 	$scope.slideVisible = function(index){
 			 if(  index < $ionicSlideBoxDelegate.currentIndex() -1
