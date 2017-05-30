@@ -317,7 +317,7 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 			var latLng = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
 			var mapOptions = {
 				center: latLng,
-				zoom: 10,
+				zoom: 8,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 			$scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -328,7 +328,7 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 				  var marker = new google.maps.Marker({
 				      map: $scope.map,
 				      animation: google.maps.Animation.DROP,
-				      position: latLng
+				      position: latlonnew
 				  });
 				}
 			});
