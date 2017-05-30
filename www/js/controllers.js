@@ -302,12 +302,80 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 	$scope.id=$stateParams.idEspecimen;
 	$scope.datos = {};
 	$scope.center_position = {};
+	$scope.resultado = {};
+	$scope.coordenadas = [];
 
 	//consulta del la planta
 	consultaBio.consultarEspecimen($scope.id,"flora").success(function(data){
 		$scope.resultado = data;
-		console.log($scope.resultado);
+		$scope.coordenadas = $scope.resultado.datos.ubicaciones;
+		console.log($scope.coordenadas);
+		/*------- MAPA ---------*/
+				//variables del mapa
+				$scope.map = null;
+				$scope.markers = {};
+				/*$scope.markers.latitud = $scope.datos.latitud;
+				$scope.markers.longitud = $scope.datos.longitud;
+				console.log($scope.resultado.datos);*/
+
+				$scope.$on('mapInitialized', function(event, map) {
+					$scope.map = map;
+					$scope.map.setZoom(15);
+					$scope.map.addListener('dragend', $scope.handleDragend);
+
+				});
+				//ubicacion actual
+				$scope.centerOnMe= function(){
+					$scope.positions = [];
+					$ionicLoading.show({
+						template: 'Cargando...'
+					});
+					// with this function you can get the user’s current position
+					// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
+					var options = { enableHighAccuracy: false};
+					$cordovaGeolocation.getCurrentPosition(options).then(function(position){
+						var pos = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
+						$scope.map.setZoom(8);
+						$scope.map.setCenter(pos);
+						$ionicLoading.hide();
+					});
+					for( var u = 0; u < $scope.coordenadas.length; u++ ){
+						(function(){
+							var cual = u;
+							console.log($scope.coordenadas[cual]);
+							$scope.markers[cual] = new google.maps.Marker({
+								position: new google.maps.LatLng( $scope.coordenadas[cual].latitud, $scope.coordenadas[cual].longitud ),
+								map: $scope.map
+
+							});
+							$scope.markers[cual].addListener('click', function(){
+								$scope.setMarkerClick( this, cual );
+							});
+
+
+						}());
+					}
+				};
+
+			/*-------FIN MAPA 	---------*/
+			$scope.centerOnMe();
+
+
+
 	})
+	$scope.setMarkerClick = function( marker, cual ){
+
+		var response = $scope.sitios[cual];
+		$scope.slider._slideTo(cual);
+
+		var pos = new google.maps.LatLng(marker.internalPosition.lat(), marker.internalPosition.lng());
+		$scope.map.panTo(pos);
+		console.log(marker);
+
+
+
+		$scope.$apply();
+	};
 	//slide de la galeria
 	$scope.slideVisible = function(index){
 			 if(  index < $ionicSlideBoxDelegate.currentIndex() -1
@@ -317,38 +385,6 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 			 return true;
 	 }
 	 $scope.center_position = {};
-/*------- MAPA ---------*/
-		//variables del mapa
-		$scope.map = null;
-		$scope.markers = {};
-		$scope.markers.latitud = $scope.datos.latitud;
-		$scope.markers.longitud = $scope.datos.longitud;
-
-		$scope.$on('mapInitialized', function(event, map) {
-			$scope.map = map;
-			$scope.map.setZoom(15);
-			$scope.map.addListener('dragend', $scope.handleDragend);
-			console.log($scope.datos);
-		});
-		//ubicacion actual
-		$scope.centerOnMe= function(){
-			$scope.positions = [];
-			$ionicLoading.show({
-				template: 'Cargando...'
-			});
-			// with this function you can get the user’s current position
-			// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
-			var options = { enableHighAccuracy: false};
-			$cordovaGeolocation.getCurrentPosition(options).then(function(position){
-				var pos = new google.maps.LatLng(4.653417, -74.128417);
-				$scope.map.setZoom(15);
-				$scope.map.setCenter(pos);
-				$ionicLoading.hide();
-			});
-		};
-
-	/*-------FIN MAPA 	---------*/
-	$scope.centerOnMe();
 
 }])
 
