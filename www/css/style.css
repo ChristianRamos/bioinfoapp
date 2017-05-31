@@ -275,7 +275,7 @@ ion-content .cont-card{
    margin-left:0;
 }
 ion-content .cont-card .swiper-slide {
-    width: 65%;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
 }

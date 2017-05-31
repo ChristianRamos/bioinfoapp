@@ -1,6 +1,6 @@
 <ion-view class="slider-view">
   <ion-nav-title>
-    <span>LukGo</span>
+    <span>Flora de Colombia</span>
   </ion-nav-title>
   <!--desarrollo seccion-->
   <ion-content >
@@ -8,9 +8,9 @@
     <div class="cont-banner">
       <ion-pane>
         <ion-slides options="optionsBanner" slider="data.slider">
-          <ion-slide-page ng-repeat="i in [1,2,3,4,5]">
+          <ion-slide-page ng-repeat="banner in banners.datos">
             <div class="list card banner">
-              <div class="card-header background" style="background-image:url(http://lorempixel.com/375/120/fashion?v={{i}})" ></div>
+              <div class="card-header background" style="background-image:url({{banner}})" ></div>
             </div>
           </ion-slide-page>
         </ion-slides>
@@ -23,112 +23,7 @@
           <ion-icon ></ion-icon>
           <span class="text-cut title-sec">Busca</span>
         </div>
-        <div class="pull-right">
-          <span class="title-all">Ver todo <i class=" icon ion-chevron-right"></i></span>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <!---->
-      <div class="cont-busca">
-        <div class="cont-hidden">
-          <ion-pane>
-            <ion-slides show-pager="false" options="optionsBusca" slider="data.slider">
-              <ion-slide-page ng-repeat="i in [1,2,3]">
-                <div class="list card busca">
-                  <div class="card-header background" style="background-image:url(http://lorempixel.com/183/100/abstract?v={{i}})" ></div>
-                </div>
-              </ion-slide-page>
-            </ion-slides>
-          </ion-pane>
-        </div>
-      </div>
-      <hr style="text-align: center;">
-    </div>
-    <!--slide Servicios-->
-    <div class="block margin-top" >
-      <div class="block-title" >
-        <div class="pull-left">
-          <ion-icon ></ion-icon>
-          <span class="text-cut title-sec">Servicios</span>
-        </div>
-        <div class="pull-right">
-          <span class="title-all">Ver todo <i class=" icon ion-chevron-right"></i></span>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <!---->
-      <div class="cont-servicios">
-        <div class="cont-hidden">
-          <ion-pane>
-            <ion-slides show-pager="false" options="optionsServicios" slider="data.slider">
-              <ion-slide-page ng-repeat="servicio in servicios">
-
-                <a ui-sref="app.profesionales({idCategoria: {{servicio.id}} })" class="list card servicios">
-                  <div class="card-header background" style="background-image:url({{servicio.imagen}})" ></div>
-                </a>
-
-              </ion-slide-page>
-            </ion-slides>
-          </ion-pane>
-        </div>
-      </div>
-      <hr style="text-align: center;">
-    </div>
-    <!--slide sitios  globlales-->
-    <div class="block margin-top" >
-      <div class="block-title" >
-        <div class="pull-left">
-          <ion-icon ></ion-icon>
-          <span class="text-cut title-sec">Centros cerca de ti</span>
-        </div>
-        <div class="pull-right">
-          <a ui-sref="app.establecimientoscerca"><span class="title-all">Ver todo <i class=" icon ion-chevron-right"></i></span></a>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <!---->
-      <div class="cont-card">
-        <div class="cont-hidden">
-          <ion-pane>
-            <ion-slides show-pager="false" options="optionscard" slider="data.slider">
-              <ion-slide-page ng-repeat="cerca in cercanos">
-
-                <div ui-sref="app.site({ idEstablecimiento: {{cerca.idEstablecimiento}} })" class="list card sites">
-                  <div class="card-header background" style="background-image:url({{cerca.foto}})" ></div>
-                  <div class="rating pull-right">
-                    <ion-icon class="star-simple" ng-repeat="j in cerca.stars">
-                      <i class="icon ion-ios-star"></i>
-                    </ion-icon>
-                    <ion-icon class="star-llena" ng-repeat="j in cerca.nostars">
-                      <i class="icon ion-ios-star-outline"></i>
-                    </ion-icon>
-                  </div>
-                  <div class="padding">
-                    <h5 class="text-cut name-site">{{cerca.nombre}}</h5>
-                    <div>
-                      <div class="pull-left">
-                        <span class="title-cat-card text-cut">{{cerca.servicios[0].titulo}}</span>
-                      </div>
-                      <div class="clear"></div>
-                    </div>
-                  </div>
-                </div>
-
-              </ion-slide-page>
-            </ion-slides>
-          </ion-pane>
-        </div>
-      </div>
-      <hr style="text-align: center;">
-    </div>
-    <!--slide sitios  globlales-->
-    <div class="block margin-top" >
-      <div class="block-title" >
-        <div class="pull-left">
-          <ion-icon ></ion-icon>
-          <span class="text-cut title-sec">Centros recomendados</span>
-        </div>
-        <div class="pull-right">
+        <div class="pull-right"ui-sref="app.buscarEspecie">
           <span class="title-all">Ver todo <i class=" icon ion-chevron-right"></i></span>
         </div>
         <div class="clear"></div>
@@ -138,25 +33,13 @@
         <div class="cont-hidden">
           <ion-pane>
             <ion-slides show-pager="false" options="optionscard" slider="data.slider">
-              <ion-slide-page ng-repeat="recomendado in recomendados">
 
-                <div ui-sref="app.site({ idEstablecimiento: {{recomendado.idEstablecimiento}} })" class="list card sites">
-                  <div class="card-header background" style="background-image:url({{recomendado.foto}})" ></div>
-                  <div class="rating pull-right">
-                    <ion-icon class="star-simple" ng-repeat="j in recomendado.stars">
-                      <i class="icon ion-ios-star"></i>
-                    </ion-icon>
-                    <ion-icon class="star-llena" ng-repeat="j in recomendado.nostars">
-                      <i class="icon ion-ios-star-outline"></i>
-                    </ion-icon>
-                  </div>
+              <ion-slide-page ng-repeat="flor in busquedas.datos">
+                <div ui-sref="app.especie({ idEspecimen: {{flor.idPlanta}} })" class="list card sites">
+                  <div class="card-header background" style="background-image:url({{flor.imagen}})" ></div>
                   <div class="padding">
-                    <h5 class="text-cut name-site">{{recomendado.nombre}}</h5>
+                    <h5 class="text-cut name-site">{{flor.nombre}}</h5>
                     <div>
-                      <div class="pull-left">
-                        <span class="title-cat-card text-cut">{{recomendado.servicios[0].titulo}}</span>
-                      </div>
-
                       <div class="clear"></div>
                     </div>
                   </div>
@@ -169,53 +52,6 @@
       </div>
       <hr style="text-align: center;">
     </div>
-    <!--slide profesionales-->
-    <div class="block margin-top" >
-      <div class="block-title" >
-        <div class="pull-left">
-          <ion-icon ></ion-icon>
-          <span class="text-cut title-sec">Profesionales recomendados</span>
-        </div>
-        <div class="pull-right">
-          <span class="title-all">Ver todo <i class=" icon ion-chevron-right"></i></span>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <!---->
-      <div class="cont-profesional">
-        <div class="cont-hidden">
-          <ion-pane>
-            <ion-slides show-pager="false" options="optionsProfesional" slider="data.slider">
-              <ion-slide-page ng-repeat="profesional in profesionales">
-
-                <div ui-sref="app.perfilpfr({ idprofesional: {{profesional.idUsuario}} })" class="list card profesional">
-                  <div class="card-header background" style="background-image:url({{profesional.foto}})" ></div>
-                  <div class="rating">
-                    <ion-icon class="star-simple" ng-repeat="j in profesional.stars">
-                      <i class="icon ion-ios-star"></i>
-                    </ion-icon>
-                    <ion-icon class="star-llena" ng-repeat="j in profesional.nostars">
-                      <i class="icon ion-ios-star-outline"></i>
-                    </ion-icon>
-                  </div>
-
-                  <div class="padding">
-                    <h5 class="text-cut name-site">{{profesional.nombre}}</h5>
-                    <div>
-                      <span class="title-cat-card text-cut ">{{profesional.servicios[0].titulo}}</span>
-                      <div class="clear"></div>
-                    </div>
-                  </div>
-                </div>
-
-              </ion-slide-page>
-            </ion-slides>
-          </ion-pane>
-        </div>
-      </div>
-      <hr style="text-align: center;">
-    </div>
-
   </ion-content>
 
 </ion-view>

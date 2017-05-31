@@ -310,36 +310,33 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 		$scope.resultado = data;
 		$scope.coordenadas = $scope.resultado.datos.ubicaciones;
 		console.log($scope.coordenadas);
-		/*------- MAPA ---------*/
-		var options = {timeout: 10000, enableHighAccuracy: true};
-
-		$cordovaGeolocation.getCurrentPosition(options).then(function(position){
-			var latLng = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
-			var mapOptions = {
-				center: latLng,
-				zoom: 8,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			$scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-			google.maps.event.addListenerOnce($scope.map, 'idle', function(){
-				for( var u = 0; u < $scope.coordenadas.length; u++ ){
-					console.log("marcador "+u+" creado");
-					var latlonnew = new google.maps.LatLng($scope.coordenadas[u].latitud, $scope.coordenadas[u].longitud);
-				  var marker = new google.maps.Marker({
-				      map: $scope.map,
-				      animation: google.maps.Animation.DROP,
-				      position: latlonnew
-				  });
-				}
+		if($scope.coordenadas!=null){
+			/*------- MAPA ---------*/
+			var options = {timeout: 10000, enableHighAccuracy: true};
+			$cordovaGeolocation.getCurrentPosition(options).then(function(position){
+				var latLng = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
+				var mapOptions = {
+					center: latLng,
+					zoom: 8,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				$scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+				google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+					for( var u = 0; u < $scope.coordenadas.length; u++ ){
+						console.log("marcador "+u+" creado");
+						var latlonnew = new google.maps.LatLng($scope.coordenadas[u].latitud, $scope.coordenadas[u].longitud);
+					  var marker = new google.maps.Marker({
+					      map: $scope.map,
+					      animation: google.maps.Animation.DROP,
+					      position: latlonnew
+					  });
+					}
+				});
+			}, function(error){
+				console.log("Could not get location");
 			});
-		}, function(error){
-			console.log("Could not get location");
-		});
-		/*-------FIN MAPA 	---------*/
-
-
-
-
+			/*-------FIN MAPA 	---------*/
+		}
 	})
 
 	//slide de la galeria
@@ -350,7 +347,7 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 	 }
 			 return true;
 	 }
-	 $scope.center_position = {};
+
 
 }])
 
@@ -2433,12 +2430,25 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 	slides y las cards de la seccion
 ***********************************/
 
-.controller('HomeCtrl', function($scope, $cordovaGeolocation, $http, $ionicLoading, $localStorage, $controller) {
+.controller('HomeCtrl', function($scope, $cordovaGeolocation, $http, $ionicLoading, $localStorage, $controller,consultaBio) {
 	console.log($localStorage.sesion);
 	$scope.path = "http://lukgo.com/Api/api.php";
 	$scope.cercanos = null;
 	$scope.recomendados = null;
-
+	$scope.banners = {};
+		$scope.busquedas = {};
+	consultaBio.obtenerBanner().success(function(data){
+		$scope.banners = data;
+		//console.log($scope.banners);
+	})
+	consultaBio.obtenerBanner().success(function(data){
+		$scope.banners = data;
+		//console.log($scope.banners);
+	})
+	consultaBio.buscarEspecimen ("","flora").success(function(data){
+		$scope.busquedas = data;
+		//console.log($scope.banners);
+	})
 	//banner
 	$scope.optionsBanner = {
 		autoplay: 5000,

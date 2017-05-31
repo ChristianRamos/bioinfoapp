@@ -9,7 +9,11 @@
       consultarEspecimen : function (id,tipo){
         global = $http.post(path,{accion: "consultaE", idEspecimen:id, tipo: tipo});
         return global;
-      }
+      },
+      obtenerBanner : function(){
+        global = $http.post(path,{accion: "bannerHome", tipo: "home"});
+        return global;
+      },
     }
   })
 	.factory('usuarios', function($http) { //declaramos la factory

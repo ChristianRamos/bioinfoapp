@@ -15,30 +15,7 @@
     <ion-content>
       <ion-list>
         <!--menu img avatar-->
-        <div  ng-if="id != ''">
-          <ion-item class="heading-item item item-avatar" nav-clear menu-close ng-click="iniciarsesion(id)">
-            <div class="user-image-container">
-                <pre-img ratio="_1_1" helper-class="rounded-image">
-                  <img class="user-image" ng-src="{{datos.avatar}}" spinner-on-load>
-                </pre-img>
-              </div>
-              <p class="message">{{mensajebv}}</p>
-              <h2 class="greeting">{{datos.nombre}}</h2>
-          </ion-item>
-        </div>
-        <div  ng-if="id == ''">
-            <div class="user-image-container">
-              <div class="col col-center">
-                  <!--<a class="login button button-block button-stable" ng-click="showLogin($event)">-->
-                  <a class="login button button-block button-stable" ng-click="openModalLogin()">
-                    Iniciar sesion
-                  </a>
-                  <a class="sign-up button button-block button-stable" ng-click="openModalRegistro()">
-                   Registrarse
-                  </a>
-              </div>
-            </div>
-         </div>
+
         <!--menu img avatar-->
         <!--menu lista-->
         <div class="list-menu">
@@ -59,31 +36,7 @@
 
         </div>
         <!--lista dos-->
-        <div class="list-menu">
-          <div class="item item-divider">
-            SERVICIOS
-          </div>
-
-          <a class="item item-icon-left item-icon-right" nav-clear menu-close ui-sref="app.establecimientoscerca({ filtros: {} })">
-            <i class="icon ion-map"></i>
-            Mi ubicación en el mapa
-            <i class="icon ion-chevron-right size-font-small"></i>
-          </a>
-        </div>
-        <!--lista tres-->
-        <div class="list-menu">
-          <div class="item item-divider">
-            LEGAL
-          </div>
-
-          <div  ng-if="id != ''">
-            <a class="item item-icon-left item-icon-right" nav-clear menu-close ng-click="openModalLogOut()">
-              <i class="icon ion-help-buoy"></i>
-                Cerrar sesion
-              <i class="icon ion-chevron-right size-font-small"></i>
-            </a>
-          </div>
-        </div>
+        
 
     </ion-list>
     </ion-content>
