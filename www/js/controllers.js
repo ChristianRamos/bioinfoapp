@@ -311,12 +311,13 @@ angular.module('your_app_name.controllers', ['servicios', 'ngMaterial', 'ngMessa
 		$scope.coordenadas = $scope.resultado.datos.ubicaciones;
 		console.log($scope.coordenadas);
 		if($scope.coordenadas!=null){
-			console.log("coo");
+
 			/*------- MAPA ---------*/
 
 
 			var options = {timeout: 10000, enableHighAccuracy: true};
 			$cordovaGeolocation.getCurrentPosition(options).then(function(position){
+				
 				var latLng = new google.maps.LatLng($scope.coordenadas[0].latitud, $scope.coordenadas[0].longitud);
 				var mapOptions = {
 					center: latLng,
